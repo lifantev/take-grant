@@ -1,0 +1,351 @@
+{
+  "graph": {
+    "label": "levelsup",
+    "comment": "",
+    "status": null,
+    "atrib": null,
+    "tstamp": 1634718262016,
+    "id": "616d908230c49e000148f1c0",
+    "uid": "5dd68c9ea20e31b7faf5dc2d",
+    "nodes": [
+      {
+        "label": "a3",
+        "comment": "",
+        "status": null,
+        "atrib": null,
+        "tstamp": null,
+        "id": "34132b76-338b-432a-85cc-361ddeaf5ed4",
+        "active": "SUBJECT",
+        "zone": null,
+        "level": null
+      },
+      {
+        "label": "b3",
+        "comment": "",
+        "status": null,
+        "atrib": null,
+        "tstamp": null,
+        "id": "ffb094e8-4e0d-4f73-bcce-4f1e01e0c464",
+        "active": "SUBJECT",
+        "zone": null,
+        "level": null
+      },
+      {
+        "label": "c3",
+        "comment": "",
+        "status": null,
+        "atrib": null,
+        "tstamp": null,
+        "id": "c6a93fea-2edf-4518-81a5-31b3b67dcd4c",
+        "active": "SUBJECT",
+        "zone": null,
+        "level": null
+      },
+      {
+        "label": "b2",
+        "comment": "",
+        "status": null,
+        "atrib": null,
+        "tstamp": null,
+        "id": "ff8c4776-bd5d-44e0-9daf-0191e311f4b9",
+        "active": "SUBJECT",
+        "zone": null,
+        "level": null
+      },
+      {
+        "label": "c2",
+        "comment": "",
+        "status": null,
+        "atrib": null,
+        "tstamp": null,
+        "id": "5932ee46-5bc5-47a2-b90c-ef713d61cec8",
+        "active": "SUBJECT",
+        "zone": null,
+        "level": null
+      },
+      {
+        "label": "a1",
+        "comment": "",
+        "status": null,
+        "atrib": null,
+        "tstamp": null,
+        "id": "b57685fb-928c-4d4a-a6f6-ac9392d82ca9",
+        "active": "SUBJECT",
+        "zone": null,
+        "level": null
+      },
+      {
+        "label": "b1",
+        "comment": "",
+        "status": null,
+        "atrib": null,
+        "tstamp": null,
+        "id": "a364bc99-3c63-416e-aff1-944447f6490b",
+        "active": "SUBJECT",
+        "zone": null,
+        "level": null
+      },
+      {
+        "label": "c1",
+        "comment": "",
+        "status": null,
+        "atrib": null,
+        "tstamp": null,
+        "id": "d9f8d86c-48a9-4ffc-a122-26da3f3452eb",
+        "active": "SUBJECT",
+        "zone": null,
+        "level": null
+      },
+      {
+        "label": "a0",
+        "comment": "",
+        "status": null,
+        "atrib": null,
+        "tstamp": null,
+        "id": "b1b399db-f402-4e0d-b7c6-010105f4f261",
+        "active": "SUBJECT",
+        "zone": null,
+        "level": null
+      },
+      {
+        "label": "s11",
+        "comment": "",
+        "status": null,
+        "atrib": null,
+        "tstamp": null,
+        "id": "8c837d9c-10f4-417a-bb1d-478b3da8b332",
+        "active": "SUBJECT",
+        "zone": null,
+        "level": null
+      },
+      {
+        "label": "s21",
+        "comment": "",
+        "status": null,
+        "atrib": null,
+        "tstamp": null,
+        "id": "e6c588de-9f16-46a0-bd22-c96f76873911",
+        "active": "SUBJECT",
+        "zone": null,
+        "level": null
+      }
+    ],
+    "edges": [
+      {
+        "label": null,
+        "comment": null,
+        "status": null,
+        "atrib": null,
+        "tstamp": null,
+        "id": "0da51104-f24a-4d84-95d1-94844f962c63",
+        "cclabel": "READ",
+        "weight": 1,
+        "source": "34132b76-338b-432a-85cc-361ddeaf5ed4",
+        "target": "ff8c4776-bd5d-44e0-9daf-0191e311f4b9"
+      },
+      {
+        "label": null,
+        "comment": null,
+        "status": null,
+        "atrib": null,
+        "tstamp": null,
+        "id": "2f3e5f8f-7113-4181-9837-ec2115c660bf",
+        "cclabel": "READ",
+        "weight": 1,
+        "source": "ffb094e8-4e0d-4f73-bcce-4f1e01e0c464",
+        "target": "ff8c4776-bd5d-44e0-9daf-0191e311f4b9"
+      },
+      {
+        "label": null,
+        "comment": null,
+        "status": null,
+        "atrib": null,
+        "tstamp": null,
+        "id": "b2385e3e-1cb5-46ef-89ad-31e063623c09",
+        "cclabel": "READ",
+        "weight": 1,
+        "source": "c6a93fea-2edf-4518-81a5-31b3b67dcd4c",
+        "target": "5932ee46-5bc5-47a2-b90c-ef713d61cec8"
+      },
+      {
+        "label": null,
+        "comment": null,
+        "status": null,
+        "atrib": null,
+        "tstamp": null,
+        "id": "932f7431-fac0-4143-a1a9-b800a7956532",
+        "cclabel": "READ",
+        "weight": 1,
+        "source": "5932ee46-5bc5-47a2-b90c-ef713d61cec8",
+        "target": "d9f8d86c-48a9-4ffc-a122-26da3f3452eb"
+      },
+      {
+        "label": null,
+        "comment": null,
+        "status": null,
+        "atrib": null,
+        "tstamp": null,
+        "id": "77ab4b99-3c26-459d-afc4-7e536cbe9382",
+        "cclabel": "READ",
+        "weight": 1,
+        "source": "d9f8d86c-48a9-4ffc-a122-26da3f3452eb",
+        "target": "b1b399db-f402-4e0d-b7c6-010105f4f261"
+      },
+      {
+        "label": null,
+        "comment": null,
+        "status": null,
+        "atrib": null,
+        "tstamp": null,
+        "id": "8b1478b7-be8b-452b-b369-450750447395",
+        "cclabel": "READ",
+        "weight": 1,
+        "source": "ff8c4776-bd5d-44e0-9daf-0191e311f4b9",
+        "target": "a364bc99-3c63-416e-aff1-944447f6490b"
+      },
+      {
+        "label": null,
+        "comment": null,
+        "status": null,
+        "atrib": null,
+        "tstamp": null,
+        "id": "f641d78e-b2e5-41d5-82b9-0428ba36d92d",
+        "cclabel": "READ",
+        "weight": 1,
+        "source": "a364bc99-3c63-416e-aff1-944447f6490b",
+        "target": "b1b399db-f402-4e0d-b7c6-010105f4f261"
+      },
+      {
+        "label": null,
+        "comment": null,
+        "status": null,
+        "atrib": null,
+        "tstamp": null,
+        "id": "6140db07-74b6-452c-a834-de39932ec283",
+        "cclabel": "READ",
+        "weight": 1,
+        "source": "b57685fb-928c-4d4a-a6f6-ac9392d82ca9",
+        "target": "b1b399db-f402-4e0d-b7c6-010105f4f261"
+      },
+      {
+        "label": null,
+        "comment": null,
+        "status": null,
+        "atrib": null,
+        "tstamp": null,
+        "id": "60dcc6d3-1a79-45e0-8180-ae7213c6b56a",
+        "cclabel": "READ",
+        "weight": 1,
+        "source": "ff8c4776-bd5d-44e0-9daf-0191e311f4b9",
+        "target": "b57685fb-928c-4d4a-a6f6-ac9392d82ca9"
+      },
+      {
+        "label": null,
+        "comment": null,
+        "status": null,
+        "atrib": null,
+        "tstamp": null,
+        "id": "6361c217-c78b-462b-8b7d-8723fc0c0bea",
+        "cclabel": "TAKE",
+        "weight": 1,
+        "source": "8c837d9c-10f4-417a-bb1d-478b3da8b332",
+        "target": "5932ee46-5bc5-47a2-b90c-ef713d61cec8"
+      },
+      {
+        "label": null,
+        "comment": null,
+        "status": null,
+        "atrib": null,
+        "tstamp": null,
+        "id": "2f5e9bab-6b24-4c0c-95ae-40493f466735",
+        "cclabel": "WRITE",
+        "weight": 1,
+        "source": "d9f8d86c-48a9-4ffc-a122-26da3f3452eb",
+        "target": "e6c588de-9f16-46a0-bd22-c96f76873911"
+      },
+      {
+        "label": null,
+        "comment": null,
+        "status": null,
+        "atrib": null,
+        "tstamp": null,
+        "id": "10ba227e-5399-4545-b118-b11ec06abe56",
+        "cclabel": "WRITE",
+        "weight": 1,
+        "source": "e6c588de-9f16-46a0-bd22-c96f76873911",
+        "target": "d9f8d86c-48a9-4ffc-a122-26da3f3452eb"
+      }
+    ]
+  },
+  "gva": {
+    "label": null,
+    "comment": null,
+    "status": null,
+    "atrib": null,
+    "tstamp": null,
+    "id": "616d90d530c49e000148f1c1",
+    "uid": "5dd68c9ea20e31b7faf5dc2d",
+    "gid": "616d908230c49e000148f1c0",
+    "zoom": 1.0000000000000002,
+    "pan": null,
+    "positions": {
+      "a364bc99-3c63-416e-aff1-944447f6490b": {
+        "x": 413.732762415267,
+        "y": 445.2456528360598
+      },
+      "c6a93fea-2edf-4518-81a5-31b3b67dcd4c": {
+        "x": 667,
+        "y": 150.4375
+      },
+      "34132b76-338b-432a-85cc-361ddeaf5ed4": {
+        "x": 258,
+        "y": 149.4375
+      },
+      "ffb094e8-4e0d-4f73-bcce-4f1e01e0c464": {
+        "x": 450,
+        "y": 144.4375
+      },
+      "e6c588de-9f16-46a0-bd22-c96f76873911": {
+        "x": 824.9999999999998,
+        "y": 421.4374999999999
+      },
+      "5932ee46-5bc5-47a2-b90c-ef713d61cec8": {
+        "x": 601,
+        "y": 316.4375
+      },
+      "8c837d9c-10f4-417a-bb1d-478b3da8b332": {
+        "x": 742.9999999999999,
+        "y": 310.43749999999994
+      },
+      "d9f8d86c-48a9-4ffc-a122-26da3f3452eb": {
+        "x": 663.732762415267,
+        "y": 438.2456528360598
+      },
+      "b1b399db-f402-4e0d-b7c6-010105f4f261": {
+        "x": 432.73276241526696,
+        "y": 627.2456528360598
+      },
+      "ff8c4776-bd5d-44e0-9daf-0191e311f4b9": {
+        "x": 359,
+        "y": 315.4375
+      },
+      "b57685fb-928c-4d4a-a6f6-ac9392d82ca9": {
+        "x": 227.4563567754267,
+        "y": 441.28232505648873
+      }
+    },
+    "nodeTypes": {
+      "a364bc99-3c63-416e-aff1-944447f6490b": "subject",
+      "c6a93fea-2edf-4518-81a5-31b3b67dcd4c": "subject",
+      "34132b76-338b-432a-85cc-361ddeaf5ed4": "subject",
+      "ffb094e8-4e0d-4f73-bcce-4f1e01e0c464": "subject",
+      "e6c588de-9f16-46a0-bd22-c96f76873911": "subject",
+      "5932ee46-5bc5-47a2-b90c-ef713d61cec8": "subject",
+      "8c837d9c-10f4-417a-bb1d-478b3da8b332": "subject",
+      "d9f8d86c-48a9-4ffc-a122-26da3f3452eb": "subject",
+      "b1b399db-f402-4e0d-b7c6-010105f4f261": "subject",
+      "ff8c4776-bd5d-44e0-9daf-0191e311f4b9": "subject",
+      "b57685fb-928c-4d4a-a6f6-ac9392d82ca9": "subject"
+    }
+  }
+}
