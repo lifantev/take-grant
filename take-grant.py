@@ -16,79 +16,108 @@ OBJECT = 'OBJECT'
 TAKE = 'TAKE'
 GRANT = 'GRANT'
 
+
 def read_graph(filename: str):
     json_graph = json.load(open(filename, 'r'))
     nodes = json_graph[GRAPH][NODES]
     edges = json_graph[GRAPH][EDGES]
 
-    g = nx.MultiDiGraph()
+    graph = nx.MultiDiGraph()
 
     id_attrs = []
     nodes_to_labels = {}
     for node in nodes:
         id_attrs.append((node[ID], node))
         nodes_to_labels[node[ID]] = node[LABEL]
-    g.add_nodes_from(id_attrs)
+    graph.add_nodes_from(id_attrs)
 
     id_attrs.clear()
     for edge in edges:
-        id_attrs.append((edge[SOURCE], edge[TARGET], edge[ID], edge))    
-    g.add_edges_from(id_attrs)
+        id_attrs.append((edge[SOURCE], edge[TARGET], edge[ID], edge))
+    graph.add_edges_from(id_attrs)
 
-    return g, nodes_to_labels
+    return graph, nodes_to_labels
 
-def print_graph(g: nx.MultiDiGraph, nodes_to_labels: dict):
+
+def print_graph(graph: nx.MultiDiGraph, nodes_to_labels: dict[str, str]):
     plt.subplot(111)
-    nx.draw(g, with_labels=True, labels=nodes_to_labels)
+    nx.draw(graph, with_labels=True, labels=nodes_to_labels)
     plt.savefig('graph_view')
 
 
-def can_share(a: str, x: str, y: str, g: nx.MultiDiGraph):
-    
+def dfs_for_spans(
+        graph: nx.MultiDiGraph, ids: set[str],
+        visited: set[str], to_visit: list[tuple[str, str]]):
+
+    while to_visit:
+        v, parent = to_visit.pop()
+        if v not in visited:
+            visited.add(v)
+            if graph.nodes[v][NODE_TYPE] == SUBJECT:
+                ids.add(v)
+            for src, _, d in graph.in_edges(nbunch=v, data=True):
+                if src != parent and d[EDGE_TYPE] == TAKE:
+                    to_visit.append((src, v))
+
+
+def can_share(a: str, x: str, y: str, graph: nx.MultiDiGraph):
+
     # condition 1
-    edges_x_y = g.get_edge_data(x, y)
+    edges_x_y = graph.get_edge_data(x, y)
     for edge in edges_x_y:
         if edge[EDGE_TYPE] == a:
             return True
 
+
     # condition 2
-    s_ids = []
-    for s, _, d in g.in_edges(nbunch=y, data=True):
+    s_ids = set()
+    for src, _, d in graph.in_edges(nbunch=y, data=True):
         if d[EDGE_TYPE] == a:
-            s_ids.append(s)
+            s_ids.add(src)
     if not s_ids:
         return False
-    
+
+
     # condition 3.1
-    x_ids = []
-    x_node = g.nodes.get(x) 
+    # add x == x'
+    x_ids = set()
+    x_node = graph.nodes.get(x)
     if x_node is not None and x_node[NODE_TYPE] == SUBJECT:
-        x_ids.append(x)
+        x_ids.add(x)
 
+    # if x' initially spans to x
+    # nodes that grant to x
     g_to_x = []
-    for s, _, d in g.in_edges(nbunch=x, data=True):
+    for src, _, d in graph.in_edges(nbunch=x, data=True):
         if d[EDGE_TYPE] == GRANT:
-            g_to_x.append(s)
-    
-    if g_to_x:
-        visited = set()
-        stack = [(v, x) for v in g_to_x]
+            g_to_x.append(src)
 
-        while stack:
-            v, parent = stack.pop()
-            if v not in visited:
-                visited.add(v)
-                if g.nodes[v][NODE_TYPE] == SUBJECT:
-                    x_ids.append(v)
-                for s, _, d in g.in_edges(nbunch=v, data=True):
-                    if s != parent and d[EDGE_TYPE] == TAKE:
-                        stack.append((s, v))
-
+    # t->* paths from subjects to grant nodes
+    visited = set()
+    to_visit = [(v, x) for v in g_to_x]
+    dfs_for_spans(graph, x_ids, visited, to_visit)
     if not x_ids:
         return False
     
+
     # condition 3.2
-    
+    # add s == s', nodes that take to s
+    si_ids = set()
+    to_visit = []
+    for s in s_ids:
+        s_node = graph.nodes.get(s)
+        if s_node is not None and s_node[NODE_TYPE] == SUBJECT:
+            si_ids.add(s)
+        for src, _, d in graph.in_edges(nbunch=s, data=True):
+            if d[EDGE_TYPE] == TAKE:
+                to_visit.append((src, s))
+
+    # t->* paths from subjects to closest take nodes for s
+    visited = set()
+    dfs_for_spans(graph, si_ids, visited, to_visit)
+    if not si_ids:
+        return False
+
 
     return False
 
