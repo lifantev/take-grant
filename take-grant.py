@@ -60,33 +60,15 @@ def dfs_for_spans(
                     to_visit.append((src, v))
 
 
-def can_share(a: str, x: str, y: str, graph: nx.MultiDiGraph):
-
-    # condition 1
-    edges_x_y = graph.get_edge_data(x, y)
-    for edge in edges_x_y:
-        if edge[EDGE_TYPE] == a:
-            return True
-
-
-    # condition 2
-    s_ids = set()
-    for src, _, d in graph.in_edges(nbunch=y, data=True):
-        if d[EDGE_TYPE] == a:
-            s_ids.add(src)
-    if not s_ids:
-        return False
-
-
-    # condition 3.1
-    # add x == x'
+def initially_spans(x: str, graph: nx.MultiDiGraph):
     x_ids = set()
+    # add x == x'
     x_node = graph.nodes.get(x)
     if x_node is not None and x_node[NODE_TYPE] == SUBJECT:
         x_ids.add(x)
 
     # if x' initially spans to x
-    # nodes that grant to x
+    # get nodes that grant to x
     g_to_x = []
     for src, _, d in graph.in_edges(nbunch=x, data=True):
         if d[EDGE_TYPE] == GRANT:
@@ -96,13 +78,12 @@ def can_share(a: str, x: str, y: str, graph: nx.MultiDiGraph):
     visited = set()
     to_visit = [(v, x) for v in g_to_x]
     dfs_for_spans(graph, x_ids, visited, to_visit)
-    if not x_ids:
-        return False
-    
+    return x_ids
 
-    # condition 3.2
-    # add s == s', nodes that take to s
+
+def terminally_spans(graph: nx.MultiDiGraph, s_ids: set[str]):
     si_ids = set()
+    # add s == s', get nodes that take to s
     to_visit = []
     for s in s_ids:
         s_node = graph.nodes.get(s)
@@ -115,11 +96,37 @@ def can_share(a: str, x: str, y: str, graph: nx.MultiDiGraph):
     # t->* paths from subjects to closest take nodes for s
     visited = set()
     dfs_for_spans(graph, si_ids, visited, to_visit)
+    return si_ids
+
+
+def can_share(a: str, x: str, y: str, graph: nx.MultiDiGraph):
+
+    # condition 1
+    edges_x_y = graph.get_edge_data(x, y)
+    for edge in edges_x_y:
+        if edge[EDGE_TYPE] == a:
+            return True
+
+    # condition 2
+    s_ids = set()
+    for src, _, d in graph.in_edges(nbunch=y, data=True):
+        if d[EDGE_TYPE] == a:
+            s_ids.add(src)
+    if not s_ids:
+        return False
+
+    # condition 3.1
+    x_ids = initially_spans(x, graph)
+    if not x_ids:
+        return False
+
+    # condition 3.2
+    si_ids = terminally_spans(graph, s_ids)
     if not si_ids:
         return False
 
-
     return False
+
 
 
 g, nodes_to_labels = read_graph('takegrant_example.json')
