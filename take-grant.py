@@ -116,14 +116,21 @@ def can_share(a: str, x: str, y: str, graph: nx.MultiDiGraph):
         return False
 
     # condition 3.1
-    x_ids = initially_spans(x, graph)
-    if not x_ids:
+    xi_ids = initially_spans(x, graph)
+    if not xi_ids:
         return False
 
     # condition 3.2
     si_ids = terminally_spans(graph, s_ids)
     if not si_ids:
         return False
+    
+    # condition 4
+    undirected_graph_view = graph.to_undirected(as_view=True)
+    for x_id in xi_ids:
+        for s_id in s_ids:
+            for path in nx.all_simple_edge_paths(undirected_graph_view, x_id, s_id):
+                return False
 
     return False
 
@@ -132,3 +139,6 @@ def can_share(a: str, x: str, y: str, graph: nx.MultiDiGraph):
 g, nodes_to_labels = read_graph('takegrant_example.json')
 print_graph(g, nodes_to_labels)
 # print(g.nodes.get('5932ee46-5bc5-47a2-b90c-ef713d61cec8'))
+# print(nx.has_path(g.to_undirected(as_view=True),'5932ee46-5bc5-47a2-b90c-ef713d61cec8', 'c6a93fea-2edf-4518-81a5-31b3b67dcd4c' ))
+# for path in nx.all_simple_edge_paths(g.to_undirected(as_view=True), '34132b76-338b-432a-85cc-361ddeaf5ed4', 'd9f8d86c-48a9-4ffc-a122-26da3f3452eb'):
+#     print(path)
