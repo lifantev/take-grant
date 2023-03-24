@@ -60,7 +60,7 @@ def dfs_for_spans(
                     to_visit.append((src, v))
 
 
-def initially_spans(x: str, graph: nx.MultiDiGraph):
+def initially_spans(graph: nx.MultiDiGraph, x: str):
     x_ids = set()
     # add x == x'
     x_node = graph.nodes.get(x)
@@ -99,6 +99,13 @@ def terminally_spans(graph: nx.MultiDiGraph, s_ids: set[str]):
     return si_ids
 
 
+def get_edge_data(graph: nx.MultiDiGraph, u: str, v: str, key: str):
+    edge = graph.get_edge_data(u, v, key)
+    if not edge:
+        return graph.get_edge_data(u, v, key)
+    return edge
+
+
 def can_share(a: str, x: str, y: str, graph: nx.MultiDiGraph):
 
     # condition 1
@@ -116,7 +123,7 @@ def can_share(a: str, x: str, y: str, graph: nx.MultiDiGraph):
         return False
 
     # condition 3.1
-    xi_ids = initially_spans(x, graph)
+    xi_ids = initially_spans(graph, x)
     if not xi_ids:
         return False
 
@@ -127,18 +134,21 @@ def can_share(a: str, x: str, y: str, graph: nx.MultiDiGraph):
     
     # condition 4
     undirected_graph_view = graph.to_undirected(as_view=True)
-    for x_id in xi_ids:
-        for s_id in s_ids:
-            for path in nx.all_simple_edge_paths(undirected_graph_view, x_id, s_id):
-                return False
+    for xi in xi_ids:
+        for si in si_ids:
+            for path in nx.all_simple_edge_paths(undirected_graph_view, xi, si):
+                prev_edge = get_edge_data(path[0][0], path[0][1], path[0][2])
+                for u, v, e_id in path[1:]:
+                    edge = get_edge_data(graph, u, v, e_id)
+
+                    return False
 
     return False
 
 
-
 g, nodes_to_labels = read_graph('takegrant_example.json')
-print_graph(g, nodes_to_labels)
-# print(g.nodes.get('5932ee46-5bc5-47a2-b90c-ef713d61cec8'))
-# print(nx.has_path(g.to_undirected(as_view=True),'5932ee46-5bc5-47a2-b90c-ef713d61cec8', 'c6a93fea-2edf-4518-81a5-31b3b67dcd4c' ))
-# for path in nx.all_simple_edge_paths(g.to_undirected(as_view=True), '34132b76-338b-432a-85cc-361ddeaf5ed4', 'd9f8d86c-48a9-4ffc-a122-26da3f3452eb'):
+# print_graph(g, nodes_to_labels)
+# print(nx.has_path(g.to_undirected(as_view=True),'a364bc99-3c63-416e-aff1-944447f6490b', 'e6c588de-9f16-46a0-bd22-c96f76873911' ))
+# for path in nx.all_simple_edge_paths(g.to_undirected(as_view=True), 'a364bc99-3c63-416e-aff1-944447f6490b', 'e6c588de-9f16-46a0-bd22-c96f76873911'):
 #     print(path)
+# print(g.get_edge_data('b1b399db-f402-4e0d-b7c6-010105f4f261', 'b57685fb-928c-4d4a-a6f6-ac9392d82ca9', '6140db07-74b6-452c-a834-de39932ec283'))
