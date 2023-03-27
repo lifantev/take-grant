@@ -32,16 +32,20 @@ def read_graph(filename: str):
     graph.add_nodes_from(id_attrs)
 
     id_attrs.clear()
+    edges_to_labels = {}
     for edge in edges:
         id_attrs.append((edge[SOURCE], edge[TARGET], edge[ID], edge))
+        edges_to_labels[(edge[SOURCE], edge[TARGET])] = edge[EDGE_TYPE]
     graph.add_edges_from(id_attrs)
 
-    return graph, nodes_to_labels
+    return graph, nodes_to_labels, edges_to_labels
 
 
-def print_graph(graph: nx.MultiDiGraph, nodes_to_labels: dict[str, str]):
+def print_graph(graph: nx.MultiDiGraph, nodes_to_labels: dict[str, str], edges_to_labels: dict[tuple, str]):
     plt.subplot(111)
-    nx.draw(graph, with_labels=True, labels=nodes_to_labels)
+    pos = nx.spring_layout(graph)
+    nx.draw(graph, pos = pos, with_labels=True, labels=nodes_to_labels)
+    nx.draw_networkx_edge_labels(graph, pos = pos, edge_labels=edges_to_labels)
     plt.savefig('graph_view')
 
 
@@ -107,11 +111,13 @@ def get_edge_data(graph: nx.MultiDiGraph, u: str, v: str, key: str):
 
 
 def is_island_bridge_path(
-        graph: nx.MultiDiGraph, edge: tuple[3], node: str,
-        prev_edge: tuple[3] | None, prev_node: str) -> bool:
+        graph: nx.MultiDiGraph, edge: dict[str, str], node: str,
+        prev_edge: dict[str, str] | None, prev_node: str) -> bool:
 
-    e_src, e_tgt, e_data = edge
-    pe_src, pe_tgt, pe_data = prev_edge
+    e_src, e_tgt, e_data = edge[SOURCE], edge[TARGET], edge
+    
+    if prev_edge != None:
+        pe_src, pe_tgt, pe_data = prev_edge[SOURCE], prev_edge[TARGET], prev_edge
     
     # only tg-paths allowed
     if e_data.get(EDGE_TYPE) not in TG_PATH_TYPES:
@@ -152,12 +158,12 @@ def is_island_bridge_path(
     return False
 
 
-def can_share(a: str, x: str, y: str, graph: nx.MultiDiGraph):
+def can_share(graph: nx.MultiDiGraph, a: str, x: str, y: str):
 
     # condition 1
     edges_x_y = graph.get_edge_data(x, y)
-    for edge in edges_x_y:
-        if edge[EDGE_TYPE] == a:
+    for edge_data in edges_x_y.values():
+        if edge_data[EDGE_TYPE] == a:
             return True
 
     # condition 2
@@ -182,8 +188,8 @@ def can_share(a: str, x: str, y: str, graph: nx.MultiDiGraph):
     undirected_graph_view = graph.to_undirected(as_view=True)
     for xi in xi_ids:
         for si in si_ids:
-            paths = nx.all_simple_edge_paths(undirected_graph_view, xi, si)            
-            for path in paths:
+            paths = nx.all_simple_edge_paths(undirected_graph_view, xi, si)
+            for path in paths:           
                 prev_edge = None
                 for prev_node, curr_node, edge_id in path:
                     edge = get_edge_data(graph, prev_node, curr_node, edge_id)
@@ -196,9 +202,6 @@ def can_share(a: str, x: str, y: str, graph: nx.MultiDiGraph):
     return False
 
 
-g, nodes_to_labels = read_graph('takegrant_example.json')
-# print_graph(g, nodes_to_labels)
-# print(nx.has_path(g.to_undirected(as_view=True),'a364bc99-3c63-416e-aff1-944447f6490b', 'e6c588de-9f16-46a0-bd22-c96f76873911' ))
-# for path in nx.all_simple_edge_paths(g.to_undirected(as_view=True), 'a364bc99-3c63-416e-aff1-944447f6490b', 'e6c588de-9f16-46a0-bd22-c96f76873911'):
-#     print(path)
-# print(g.get_edge_data('b1b399db-f402-4e0d-b7c6-010105f4f261', 'b57685fb-928c-4d4a-a6f6-ac9392d82ca9', '6140db07-74b6-452c-a834-de39932ec283'))
+g, nodes_to_labels, edges_to_labels = read_graph('takegrant_example.json')
+# print_graph(g, nodes_to_labels, edges_to_labels)
+print(can_share(graph=g, a='READ', x='e6c588de-9f16-46a0-bd22-c96f76873911', y='d9f8d86c-48a9-4ffc-a122-26da3f3452eb'))
