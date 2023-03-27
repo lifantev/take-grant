@@ -15,7 +15,7 @@ SUBJECT = 'SUBJECT'
 OBJECT = 'OBJECT'
 TAKE = 'TAKE'
 GRANT = 'GRANT'
-
+TG_PATH_TYPES = [TAKE, GRANT]
 
 def read_graph(filename: str):
     json_graph = json.load(open(filename, 'r'))
@@ -106,6 +106,52 @@ def get_edge_data(graph: nx.MultiDiGraph, u: str, v: str, key: str):
     return edge
 
 
+def is_island_bridge_path(
+        graph: nx.MultiDiGraph, edge: tuple[3], node: str,
+        prev_edge: tuple[3] | None, prev_node: str) -> bool:
+
+    e_src, e_tgt, e_data = edge
+    pe_src, pe_tgt, pe_data = prev_edge
+    
+    # only tg-paths allowed
+    if e_data.get(EDGE_TYPE) not in TG_PATH_TYPES:
+        return False
+    
+    # start of the tg-path
+    if prev_edge == None:
+        if graph.nodes[node][NODE_TYPE] == SUBJECT:
+            return True
+        return False
+    elif pe_data.get(EDGE_TYPE) not in TG_PATH_TYPES:
+        return False
+    
+    # island
+    if graph.nodes[prev_node][NODE_TYPE] == SUBJECT or graph.nodes[node][NODE_TYPE] == SUBJECT:
+        return True
+    
+    # bridge paths are { t→* , t←*, t→* g→ t←*, t→* g← t←* }
+    #
+    # t→* path can be extended by GRANT edge or other t→* path 
+    if pe_src == prev_node and pe_data[EDGE_TYPE] == TAKE:
+        if e_data[EDGE_TYPE] == GRANT:
+            return True
+        elif e_data[EDGE_TYPE] == TAKE and e_src == node:
+            return True
+        return False
+    # t←* paths can be extended only by themselves
+    elif pe_tgt == prev_node and pe_data[EDGE_TYPE] == TAKE:
+        if e_tgt == node and e_data[EDGE_TYPE] == TAKE:
+            return True
+        return False
+    # only t←* paths allowed after GRANT edge
+    elif pe_data[EDGE_TYPE] == GRANT:
+        if e_tgt == node and e_data[EDGE_TYPE] == TAKE:
+            return True
+        return False 
+    
+    return False
+
+
 def can_share(a: str, x: str, y: str, graph: nx.MultiDiGraph):
 
     # condition 1
@@ -131,17 +177,21 @@ def can_share(a: str, x: str, y: str, graph: nx.MultiDiGraph):
     si_ids = terminally_spans(graph, s_ids)
     if not si_ids:
         return False
-    
+
     # condition 4
     undirected_graph_view = graph.to_undirected(as_view=True)
     for xi in xi_ids:
         for si in si_ids:
-            for path in nx.all_simple_edge_paths(undirected_graph_view, xi, si):
-                prev_edge = get_edge_data(path[0][0], path[0][1], path[0][2])
-                for u, v, e_id in path[1:]:
-                    edge = get_edge_data(graph, u, v, e_id)
-
-                    return False
+            paths = nx.all_simple_edge_paths(undirected_graph_view, xi, si)            
+            for path in paths:
+                prev_edge = None
+                for prev_node, curr_node, edge_id in path:
+                    edge = get_edge_data(graph, prev_node, curr_node, edge_id)
+                    ok = is_island_bridge_path(graph, edge, curr_node, prev_edge, prev_node)
+                    if not ok:
+                        break
+                    prev_edge = edge
+                return True
 
     return False
 
