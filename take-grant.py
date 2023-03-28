@@ -1,6 +1,7 @@
 import json
 from matplotlib import pyplot as plt
 import networkx as nx
+from itertools import product
 
 GRAPH = 'graph'
 NODES = 'nodes'
@@ -17,7 +18,7 @@ TAKE = 'TAKE'
 GRANT = 'GRANT'
 TG_PATH_TYPES = [TAKE, GRANT]
 
-def read_graph(filename: str):
+def read_graph(filename: str) -> tuple[nx.MultiDiGraph, dict[str,str], dict[str,str]]:
     json_graph = json.load(open(filename, 'r'))
     nodes = json_graph[GRAPH][NODES]
     edges = json_graph[GRAPH][EDGES]
@@ -64,7 +65,7 @@ def dfs_for_spans(
                     to_visit.append((src, v))
 
 
-def initially_spans(graph: nx.MultiDiGraph, x: str):
+def initially_spans(graph: nx.MultiDiGraph, x: str) -> set[str]:
     x_ids = set()
     # add x == x'
     x_node = graph.nodes.get(x)
@@ -85,7 +86,7 @@ def initially_spans(graph: nx.MultiDiGraph, x: str):
     return x_ids
 
 
-def terminally_spans(graph: nx.MultiDiGraph, s_ids: set[str]):
+def terminally_spans(graph: nx.MultiDiGraph, s_ids: set[str]) -> set[str]:
     si_ids = set()
     # add s == s', get nodes that take to s
     to_visit = []
@@ -103,7 +104,7 @@ def terminally_spans(graph: nx.MultiDiGraph, s_ids: set[str]):
     return si_ids
 
 
-def get_edge_data(graph: nx.MultiDiGraph, u: str, v: str, key: str):
+def get_edge_data(graph: nx.MultiDiGraph, u: str, v: str, key: str) -> dict[str,str] | None:
     edge = graph.get_edge_data(u, v, key)
     if not edge:
         return graph.get_edge_data(u, v, key)
@@ -114,7 +115,10 @@ def is_island_bridge_path(
         graph: nx.MultiDiGraph, edge: dict[str, str], node: str,
         prev_edge: dict[str, str] | None, prev_node: str) -> bool:
 
-    e_src, e_tgt, e_data = edge[SOURCE], edge[TARGET], edge
+    if edge != None:
+        e_src, e_tgt, e_data = edge[SOURCE], edge[TARGET], edge
+    else:
+        return False
     
     if prev_edge != None:
         pe_src, pe_tgt, pe_data = prev_edge[SOURCE], prev_edge[TARGET], prev_edge
@@ -158,7 +162,7 @@ def is_island_bridge_path(
     return False
 
 
-def can_share(graph: nx.MultiDiGraph, a: str, x: str, y: str):
+def can_share(graph: nx.MultiDiGraph, a: str, x: str, y: str) -> bool:
 
     # condition 1
     edges_x_y = graph.get_edge_data(x, y)
@@ -186,18 +190,17 @@ def can_share(graph: nx.MultiDiGraph, a: str, x: str, y: str):
 
     # condition 4
     undirected_graph_view = graph.to_undirected(as_view=True)
-    for xi in xi_ids:
-        for si in si_ids:
-            paths = nx.all_simple_edge_paths(undirected_graph_view, xi, si)
-            for path in paths:           
-                prev_edge = None
-                for prev_node, curr_node, edge_id in path:
-                    edge = get_edge_data(graph, prev_node, curr_node, edge_id)
-                    ok = is_island_bridge_path(graph, edge, curr_node, prev_edge, prev_node)
-                    if not ok:
-                        break
-                    prev_edge = edge
-                return True
+    for xi, si in product(xi_ids, si_ids):
+        paths = nx.all_simple_edge_paths(undirected_graph_view, xi, si)
+        for path in paths:           
+            prev_edge = None
+            for prev_node, curr_node, edge_id in path:
+                edge = get_edge_data(graph, prev_node, curr_node, edge_id)
+                ok = is_island_bridge_path(graph, edge, curr_node, prev_edge, prev_node)
+                if not ok:
+                    break
+                prev_edge = edge
+            return True
 
     return False
 
