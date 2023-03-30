@@ -25,24 +25,19 @@ log.basicConfig(format='%(process)d-%(levelname)s-%(message)s',
 
 
 def read_graph(filename: str) -> tuple[nx.MultiDiGraph, dict[str, str], dict[str, str]]:
-    json_graph = json.load(open(filename, 'r'))
-    nodes = json_graph[GRAPH][NODES]
-    edges = json_graph[GRAPH][EDGES]
+    with open(filename, 'r') as file:
+        json_graph = json.load(file)
+        nodes = json_graph[GRAPH][NODES]
+        edges = json_graph[GRAPH][EDGES]
 
     graph = nx.MultiDiGraph()
-
-    id_attrs = []
-    nodes_to_labels = {}
-    for node in nodes:
-        id_attrs.append((node[ID], node))
-        nodes_to_labels[node[ID]] = node[LABEL]
+    id_attrs = ((node[ID], node) for node in nodes)
+    nodes_to_labels = {node[ID]: node[LABEL] for node in nodes}
     graph.add_nodes_from(id_attrs)
 
-    id_attrs.clear()
-    edges_to_labels = {}
-    for edge in edges:
-        id_attrs.append((edge[SOURCE], edge[TARGET], edge[ID], edge))
-        edges_to_labels[(edge[SOURCE], edge[TARGET])] = edge[EDGE_TYPE]
+    id_attrs = ((edge[SOURCE], edge[TARGET], edge[ID], edge) for edge in edges)
+    edges_to_labels = {(edge[SOURCE], edge[TARGET])
+                        : edge[EDGE_TYPE] for edge in edges}
     graph.add_edges_from(id_attrs)
 
     return graph, nodes_to_labels, edges_to_labels
@@ -80,10 +75,8 @@ def initially_spans(graph: nx.MultiDiGraph, x: str) -> set[str]:
 
     # if x' initially spans to x
     # get nodes that grant to x
-    g_to_x = []
-    for src, _, d in graph.in_edges(nbunch=x, data=True):
-        if d[EDGE_TYPE] == GRANT:
-            g_to_x.append(src)
+    g_to_x = {src for src, _, d in graph.in_edges(
+        nbunch=x, data=True) if d[EDGE_TYPE] == GRANT}
 
     # t->* paths from subjects to grant nodes
     visited = set()
@@ -111,10 +104,13 @@ def terminally_spans(graph: nx.MultiDiGraph, s_ids: set[str]) -> set[str]:
 
 
 def get_edge_data(graph: nx.MultiDiGraph, u: str, v: str, key: str) -> dict[str, str] | None:
-    edge = graph.get_edge_data(u, v, key)
-    if not edge:
-        return graph.get_edge_data(u, v, key)
-    return edge
+    try:
+        return graph[u][v][key]
+    except KeyError:
+        try:
+            return graph[v][u][key]
+        except [KeyError]:
+            return None
 
 
 def is_island_bridge(
@@ -173,8 +169,7 @@ def is_island_bridge_path(args: tuple[nx.MultiDiGraph, nx.MultiGraph, tuple[str,
     xi, si = xi_si
     log.info('[is_island_brifge_path: xi=%s, si=%s]', xi, si)
 
-    for path in nx.all_simple_edge_paths(graph_view, xi, si):
-        log.info('[is_island_brifge_path:xi=%s, si=%s] path=%s', xi, si, path)
+    def check_path(path):
         prev_edge = None
         ok_path = True
         for prev_node, curr_node, edge_id in path:
@@ -187,21 +182,24 @@ def is_island_bridge_path(args: tuple[nx.MultiDiGraph, nx.MultiGraph, tuple[str,
                 ok_path = False
                 break
             prev_edge = edge
+
         log.info('[is_island_brifge_path:xi=%s, si=%s] ok_path=%s',
                  xi, si, ok_path)
-        if ok_path:
-            return True
+        return ok_path
+
+    with mp.get_context('spawn').Pool() as pool:
+        for res in pool.imap_unordered(check_path, nx.all_simple_edge_paths(graph_view, xi, si)):
+            if res:
+                return True
     return False
 
 
 def can_share(graph: nx.MultiDiGraph, a: str, x: str, y: str) -> bool:
 
     # condition 1
-    edges_x_y = graph.get_edge_data(x, y)
-    for edge_data in edges_x_y.values():
-        if edge_data[EDGE_TYPE] == a:
-            log.info('[can_share:condition #1] true')
-            return True
+    if any(edge_data[EDGE_TYPE] == a for edge_data in graph.get_edge_data(x, y).values()):
+        log.info('[can_share:condition #1] true')
+        return True
 
     # condition 2
     s_ids = set()
@@ -226,9 +224,8 @@ def can_share(graph: nx.MultiDiGraph, a: str, x: str, y: str) -> bool:
 
     # condition 4
     undirected_graph_view = graph.to_undirected(as_view=True)
-    args = [(graph, undirected_graph_view, xi_si)
-            for xi_si in product(xi_ids, si_ids)]
-    print(args)
+    args = ((graph, undirected_graph_view, xi_si)
+            for xi_si in product(xi_ids, si_ids))
     with mp.Pool() as pool:
         for res in pool.imap_unordered(is_island_bridge_path, args):
             if res:
@@ -236,7 +233,8 @@ def can_share(graph: nx.MultiDiGraph, a: str, x: str, y: str) -> bool:
     return False
 
 
-g, nodes_to_labels, edges_to_labels = read_graph('takegrant_example.json')
-# print_graph(g, nodes_to_labels, edges_to_labels)
-print(can_share(graph=g, a='READ', x='e6c588de-9f16-46a0-bd22-c96f76873911',
-      y='d9f8d86c-48a9-4ffc-a122-26da3f3452eb'))
+if __name__ == '__main__':
+    g, nodes_to_labels, edges_to_labels = read_graph('takegrant_example.json')
+    # print_graph(g, nodes_to_labels, edges_to_labels)
+    print(can_share(graph=g, a='READ', x='e6c588de-9f16-46a0-bd22-c96f76873911',
+                    y='d9f8d86c-48a9-4ffc-a122-26da3f3452eb'))
