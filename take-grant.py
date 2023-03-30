@@ -1,4 +1,5 @@
 import json
+import logging as log
 import networkx as nx
 import multiprocessing as mp
 from matplotlib import pyplot as plt
@@ -18,6 +19,9 @@ OBJECT = 'OBJECT'
 TAKE = 'TAKE'
 GRANT = 'GRANT'
 TG_PATH_TYPES = [TAKE, GRANT]
+
+log.basicConfig(format='%(process)d-%(levelname)s-%(message)s',
+                level=log.DEBUG, filename='take-grant.log', filemode='w')
 
 
 def read_graph(filename: str) -> tuple[nx.MultiDiGraph, dict[str, str], dict[str, str]]:
@@ -167,19 +171,26 @@ def is_island_bridge(
 def is_island_bridge_path(args: tuple[nx.MultiDiGraph, nx.MultiGraph, tuple[str, str]]) -> bool:
     graph, graph_view, xi_si = args
     xi, si = xi_si
+    log.info('[is_island_brifge_path: xi=%s, si=%s]', xi, si)
 
-    paths = nx.all_simple_edge_paths(graph_view, xi, si)
-    for path in paths:
+    for path in nx.all_simple_edge_paths(graph_view, xi, si):
+        log.info('[is_island_brifge_path:xi=%s, si=%s] path=%s', xi, si, path)
         prev_edge = None
+        ok_path = True
         for prev_node, curr_node, edge_id in path:
             edge = get_edge_data(graph, prev_node, curr_node, edge_id)
             ok = is_island_bridge(
                 graph, edge, curr_node, prev_edge, prev_node)
+            log.debug('[is_island_brifge_path:xi=%s, si=%s] prev_node=%s, curr_node=%s, ok=%s',
+                      xi, si, curr_node, prev_node, ok)
             if not ok:
+                ok_path = False
                 break
             prev_edge = edge
-        # return True 
-        # todo: bug
+        log.info('[is_island_brifge_path:xi=%s, si=%s] ok_path=%s',
+                 xi, si, ok_path)
+        if ok_path:
+            return True
     return False
 
 
@@ -189,6 +200,7 @@ def can_share(graph: nx.MultiDiGraph, a: str, x: str, y: str) -> bool:
     edges_x_y = graph.get_edge_data(x, y)
     for edge_data in edges_x_y.values():
         if edge_data[EDGE_TYPE] == a:
+            log.info('[can_share:condition #1] true')
             return True
 
     # condition 2
@@ -196,16 +208,19 @@ def can_share(graph: nx.MultiDiGraph, a: str, x: str, y: str) -> bool:
     for src, _, d in graph.in_edges(nbunch=y, data=True):
         if d[EDGE_TYPE] == a:
             s_ids.add(src)
+    log.info('[can_share:condition #2] s_ids=%s', s_ids)
     if not s_ids:
         return False
 
     # condition 3.1
     xi_ids = initially_spans(graph, x)
+    log.info('[can_share:condition #3.1] xi_ids=%s', xi_ids)
     if not xi_ids:
         return False
 
     # condition 3.2
     si_ids = terminally_spans(graph, s_ids)
+    log.info('[can_share:condition #3.2] si_ids=%s', si_ids)
     if not si_ids:
         return False
 
@@ -213,9 +228,9 @@ def can_share(graph: nx.MultiDiGraph, a: str, x: str, y: str) -> bool:
     undirected_graph_view = graph.to_undirected(as_view=True)
     args = [(graph, undirected_graph_view, xi_si)
             for xi_si in product(xi_ids, si_ids)]
+    print(args)
     with mp.Pool() as pool:
-        ress = pool.imap_unordered(is_island_bridge_path, args)
-        for res in ress:
+        for res in pool.imap_unordered(is_island_bridge_path, args):
             if res:
                 return True
     return False
