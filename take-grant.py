@@ -1,6 +1,7 @@
 import json
-from matplotlib import pyplot as plt
 import networkx as nx
+import multiprocessing as mp
+from matplotlib import pyplot as plt
 from itertools import product
 
 GRAPH = 'graph'
@@ -18,7 +19,8 @@ TAKE = 'TAKE'
 GRANT = 'GRANT'
 TG_PATH_TYPES = [TAKE, GRANT]
 
-def read_graph(filename: str) -> tuple[nx.MultiDiGraph, dict[str,str], dict[str,str]]:
+
+def read_graph(filename: str) -> tuple[nx.MultiDiGraph, dict[str, str], dict[str, str]]:
     json_graph = json.load(open(filename, 'r'))
     nodes = json_graph[GRAPH][NODES]
     edges = json_graph[GRAPH][EDGES]
@@ -45,8 +47,8 @@ def read_graph(filename: str) -> tuple[nx.MultiDiGraph, dict[str,str], dict[str,
 def print_graph(graph: nx.MultiDiGraph, nodes_to_labels: dict[str, str], edges_to_labels: dict[tuple, str]):
     plt.subplot(111)
     pos = nx.spring_layout(graph)
-    nx.draw(graph, pos = pos, with_labels=True, labels=nodes_to_labels)
-    nx.draw_networkx_edge_labels(graph, pos = pos, edge_labels=edges_to_labels)
+    nx.draw(graph, pos=pos, with_labels=True, labels=nodes_to_labels)
+    nx.draw_networkx_edge_labels(graph, pos=pos, edge_labels=edges_to_labels)
     plt.savefig('graph_view')
 
 
@@ -104,14 +106,14 @@ def terminally_spans(graph: nx.MultiDiGraph, s_ids: set[str]) -> set[str]:
     return si_ids
 
 
-def get_edge_data(graph: nx.MultiDiGraph, u: str, v: str, key: str) -> dict[str,str] | None:
+def get_edge_data(graph: nx.MultiDiGraph, u: str, v: str, key: str) -> dict[str, str] | None:
     edge = graph.get_edge_data(u, v, key)
     if not edge:
         return graph.get_edge_data(u, v, key)
     return edge
 
 
-def is_island_bridge_path(
+def is_island_bridge(
         graph: nx.MultiDiGraph, edge: dict[str, str], node: str,
         prev_edge: dict[str, str] | None, prev_node: str) -> bool:
 
@@ -119,14 +121,14 @@ def is_island_bridge_path(
         e_src, e_tgt, e_data = edge[SOURCE], edge[TARGET], edge
     else:
         return False
-    
+
     if prev_edge != None:
         pe_src, pe_tgt, pe_data = prev_edge[SOURCE], prev_edge[TARGET], prev_edge
-    
+
     # only tg-paths allowed
     if e_data.get(EDGE_TYPE) not in TG_PATH_TYPES:
         return False
-    
+
     # start of the tg-path
     if prev_edge == None:
         if graph.nodes[node][NODE_TYPE] == SUBJECT:
@@ -134,14 +136,14 @@ def is_island_bridge_path(
         return False
     elif pe_data.get(EDGE_TYPE) not in TG_PATH_TYPES:
         return False
-    
+
     # island
     if graph.nodes[prev_node][NODE_TYPE] == SUBJECT or graph.nodes[node][NODE_TYPE] == SUBJECT:
         return True
-    
+
     # bridge paths are { t→* , t←*, t→* g→ t←*, t→* g← t←* }
     #
-    # t→* path can be extended by GRANT edge or other t→* path 
+    # t→* path can be extended by GRANT edge or other t→* path
     if pe_src == prev_node and pe_data[EDGE_TYPE] == TAKE:
         if e_data[EDGE_TYPE] == GRANT:
             return True
@@ -157,8 +159,27 @@ def is_island_bridge_path(
     elif pe_data[EDGE_TYPE] == GRANT:
         if e_tgt == node and e_data[EDGE_TYPE] == TAKE:
             return True
-        return False 
-    
+        return False
+
+    return False
+
+
+def is_island_bridge_path(args: tuple[nx.MultiDiGraph, nx.MultiGraph, tuple[str, str]]) -> bool:
+    graph, graph_view, xi_si = args
+    xi, si = xi_si
+
+    paths = nx.all_simple_edge_paths(graph_view, xi, si)
+    for path in paths:
+        prev_edge = None
+        for prev_node, curr_node, edge_id in path:
+            edge = get_edge_data(graph, prev_node, curr_node, edge_id)
+            ok = is_island_bridge(
+                graph, edge, curr_node, prev_edge, prev_node)
+            if not ok:
+                break
+            prev_edge = edge
+        # return True 
+        # todo: bug
     return False
 
 
@@ -190,21 +211,17 @@ def can_share(graph: nx.MultiDiGraph, a: str, x: str, y: str) -> bool:
 
     # condition 4
     undirected_graph_view = graph.to_undirected(as_view=True)
-    for xi, si in product(xi_ids, si_ids):
-        paths = nx.all_simple_edge_paths(undirected_graph_view, xi, si)
-        for path in paths:           
-            prev_edge = None
-            for prev_node, curr_node, edge_id in path:
-                edge = get_edge_data(graph, prev_node, curr_node, edge_id)
-                ok = is_island_bridge_path(graph, edge, curr_node, prev_edge, prev_node)
-                if not ok:
-                    break
-                prev_edge = edge
-            return True
-
+    args = [(graph, undirected_graph_view, xi_si)
+            for xi_si in product(xi_ids, si_ids)]
+    with mp.Pool() as pool:
+        ress = pool.imap_unordered(is_island_bridge_path, args)
+        for res in ress:
+            if res:
+                return True
     return False
 
 
 g, nodes_to_labels, edges_to_labels = read_graph('takegrant_example.json')
 # print_graph(g, nodes_to_labels, edges_to_labels)
-print(can_share(graph=g, a='READ', x='e6c588de-9f16-46a0-bd22-c96f76873911', y='d9f8d86c-48a9-4ffc-a122-26da3f3452eb'))
+print(can_share(graph=g, a='READ', x='e6c588de-9f16-46a0-bd22-c96f76873911',
+      y='d9f8d86c-48a9-4ffc-a122-26da3f3452eb'))
