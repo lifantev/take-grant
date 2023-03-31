@@ -1,5 +1,6 @@
 import json
 import logging as log
+import threading
 import networkx as nx
 import multiprocessing as mp
 from matplotlib import pyplot as plt
@@ -187,11 +188,16 @@ def is_island_bridge_path(args: tuple[nx.MultiDiGraph, nx.MultiGraph, tuple[str,
                  xi, si, ok_path)
         return ok_path
 
-    with mp.get_context('spawn').Pool() as pool:
-        for res in pool.imap_unordered(check_path, nx.all_simple_edge_paths(graph_view, xi, si)):
-            if res:
-                return True
-    return False
+    paths = list(nx.all_simple_edge_paths(graph_view, xi, si))
+    results = []
+    log.info('[is_island_brifge_path:xi=%s, si=%s] paths=%s', xi, si, paths)
+    for path in paths:
+        t = threading.Thread(target=lambda: results.append(check_path(path)))
+        t.start()
+    for t in threading.enumerate():
+        if t is not threading.current_thread():
+            t.join()
+    return any(results)
 
 
 def can_share(graph: nx.MultiDiGraph, a: str, x: str, y: str) -> bool:
