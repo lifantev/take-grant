@@ -22,7 +22,7 @@ GRANT = 'GRANT'
 TG_PATH_TYPES = [TAKE, GRANT]
 
 log.basicConfig(format='%(process)d-%(levelname)s-%(message)s',
-                level=log.DEBUG, filename='take-grant.log', filemode='w')
+                level=log.DEBUG, filename='./log/take_grant.log', filemode='w')
 
 
 def read_graph(filename: str) -> tuple[nx.MultiDiGraph, dict[str, str], dict[str, str]]:
@@ -44,12 +44,12 @@ def read_graph(filename: str) -> tuple[nx.MultiDiGraph, dict[str, str], dict[str
     return graph, nodes_to_labels, edges_to_labels
 
 
-def print_graph(graph: nx.MultiDiGraph, nodes_to_labels: dict[str, str], edges_to_labels: dict[tuple, str]):
+def print_graph(graph: nx.MultiDiGraph, filename: str, nodes_to_labels: dict[str, str], edges_to_labels: dict[tuple, str]):
     plt.subplot(111)
     pos = nx.spring_layout(graph)
     nx.draw(graph, pos=pos, with_labels=True, labels=nodes_to_labels)
     nx.draw_networkx_edge_labels(graph, pos=pos, edge_labels=edges_to_labels)
-    plt.savefig('graph_view')
+    plt.savefig(filename)
 
 
 def dfs_for_spans(
@@ -240,7 +240,7 @@ def can_share(graph: nx.MultiDiGraph, a: str, x: str, y: str) -> bool:
 
 
 if __name__ == '__main__':
-    g, nodes_to_labels, edges_to_labels = read_graph('takegrant_example.json')
-    # print_graph(g, nodes_to_labels, edges_to_labels)
+    g, nodes_to_labels, edges_to_labels = read_graph('./test/takegrant_example.json')
+    print_graph(g, './view/takegrant_example_view', nodes_to_labels, edges_to_labels)
     print(can_share(graph=g, a='READ', x='e6c588de-9f16-46a0-bd22-c96f76873911',
                     y='d9f8d86c-48a9-4ffc-a122-26da3f3452eb'))

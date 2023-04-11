@@ -1,2 +1,2 @@
 run:
-	python3 take-grant.py
+	python3 take_grant.py
