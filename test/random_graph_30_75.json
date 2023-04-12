@@ -1,0 +1,603 @@
+{
+  "graph": {
+    "id": "30_75",
+    "nodes": [
+      {
+        "label": "node1",
+        "id": "node1",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node2",
+        "id": "node2",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node3",
+        "id": "node3",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node4",
+        "id": "node4",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node5",
+        "id": "node5",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node6",
+        "id": "node6",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node7",
+        "id": "node7",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node8",
+        "id": "node8",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node9",
+        "id": "node9",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node10",
+        "id": "node10",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node11",
+        "id": "node11",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node12",
+        "id": "node12",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node13",
+        "id": "node13",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node14",
+        "id": "node14",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node15",
+        "id": "node15",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node16",
+        "id": "node16",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node17",
+        "id": "node17",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node18",
+        "id": "node18",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node19",
+        "id": "node19",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node20",
+        "id": "node20",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node21",
+        "id": "node21",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node22",
+        "id": "node22",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node23",
+        "id": "node23",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node24",
+        "id": "node24",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node25",
+        "id": "node25",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node26",
+        "id": "node26",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node27",
+        "id": "node27",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node28",
+        "id": "node28",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node29",
+        "id": "node29",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node30",
+        "id": "node30",
+        "active": "OBJECT"
+      }
+    ],
+    "edges": [
+      {
+        "id": "0f4a9d4a-e75c-4832-9b98-f0385bb89e3f",
+        "cclabel": "A",
+        "source": "node26",
+        "target": "node9"
+      },
+      {
+        "id": "34663e0b-0cf4-42db-a282-067470b0cf96",
+        "cclabel": "GRANT",
+        "source": "node5",
+        "target": "node4"
+      },
+      {
+        "id": "e16d76cf-29e1-4baa-85e1-200cada2f2dc",
+        "cclabel": "A",
+        "source": "node24",
+        "target": "node17"
+      },
+      {
+        "id": "75b0ced1-4df3-4a6c-8459-fb00c4b41a83",
+        "cclabel": "A",
+        "source": "node17",
+        "target": "node23"
+      },
+      {
+        "id": "fd9b0b17-5807-4a8b-82f8-de5dc0cfa71b",
+        "cclabel": "A",
+        "source": "node23",
+        "target": "node26"
+      },
+      {
+        "id": "5a1bfb90-8ec0-41f5-92bd-2c17477f482e",
+        "cclabel": "TAKE",
+        "source": "node17",
+        "target": "node3"
+      },
+      {
+        "id": "25494aff-76e4-437e-946e-65193f4ec0dc",
+        "cclabel": "A",
+        "source": "node9",
+        "target": "node5"
+      },
+      {
+        "id": "c828adb9-a237-4832-90ab-829a34668e39",
+        "cclabel": "TAKE",
+        "source": "node4",
+        "target": "node28"
+      },
+      {
+        "id": "d2de9a53-fdd8-4dea-bb4c-b28943b80722",
+        "cclabel": "TAKE",
+        "source": "node17",
+        "target": "node8"
+      },
+      {
+        "id": "15eeee4f-a10e-4d13-b677-970e314d3b35",
+        "cclabel": "A",
+        "source": "node18",
+        "target": "node29"
+      },
+      {
+        "id": "94cd9d13-cb67-4175-97e5-fc33434ce806",
+        "cclabel": "A",
+        "source": "node1",
+        "target": "node17"
+      },
+      {
+        "id": "4d81c392-11ee-4a85-ae1d-a2a412d3621a",
+        "cclabel": "GRANT",
+        "source": "node21",
+        "target": "node22"
+      },
+      {
+        "id": "d73a85b7-19e6-4b6c-a5a4-ad286bcfc746",
+        "cclabel": "A",
+        "source": "node11",
+        "target": "node15"
+      },
+      {
+        "id": "d3c3b870-de19-467a-b48e-05042a2964d9",
+        "cclabel": "A",
+        "source": "node27",
+        "target": "node20"
+      },
+      {
+        "id": "a2c02c20-4410-43a4-938f-06d8de4a2ca0",
+        "cclabel": "GRANT",
+        "source": "node17",
+        "target": "node29"
+      },
+      {
+        "id": "a7da6310-1b3f-46f2-a192-008ccd479326",
+        "cclabel": "GRANT",
+        "source": "node1",
+        "target": "node4"
+      },
+      {
+        "id": "ef832a09-78d7-40b7-a8cf-57f18c1b2c46",
+        "cclabel": "A",
+        "source": "node24",
+        "target": "node20"
+      },
+      {
+        "id": "502d3b59-8660-47fb-a888-d604e32056d2",
+        "cclabel": "A",
+        "source": "node15",
+        "target": "node27"
+      },
+      {
+        "id": "f18b0790-075d-4fee-a11a-444200ca4cc3",
+        "cclabel": "GRANT",
+        "source": "node20",
+        "target": "node28"
+      },
+      {
+        "id": "eef578f5-d088-4a34-87df-afb6ab91650a",
+        "cclabel": "A",
+        "source": "node3",
+        "target": "node19"
+      },
+      {
+        "id": "3a089e97-9611-4171-8259-aa0c0522f5e4",
+        "cclabel": "GRANT",
+        "source": "node24",
+        "target": "node21"
+      },
+      {
+        "id": "00dd4ac0-1de8-4bc5-92f4-e3b064ab8842",
+        "cclabel": "GRANT",
+        "source": "node20",
+        "target": "node24"
+      },
+      {
+        "id": "91749991-f986-4c43-ae76-21efe824fff5",
+        "cclabel": "A",
+        "source": "node5",
+        "target": "node9"
+      },
+      {
+        "id": "2e09e552-3688-4d62-90f3-a618001a0f47",
+        "cclabel": "A",
+        "source": "node7",
+        "target": "node28"
+      },
+      {
+        "id": "3491abcd-01f8-4591-9693-45a73e4626bf",
+        "cclabel": "GRANT",
+        "source": "node28",
+        "target": "node29"
+      },
+      {
+        "id": "a3b173b7-82fc-4eeb-b162-ebd76d72dbdc",
+        "cclabel": "GRANT",
+        "source": "node14",
+        "target": "node20"
+      },
+      {
+        "id": "92c56fac-ce51-45d9-94d8-781e790108c6",
+        "cclabel": "GRANT",
+        "source": "node3",
+        "target": "node18"
+      },
+      {
+        "id": "37b01403-229e-4904-9e26-c1d4b9ce1874",
+        "cclabel": "A",
+        "source": "node3",
+        "target": "node24"
+      },
+      {
+        "id": "2727bd9f-ea27-4493-9693-0cda8d76ed65",
+        "cclabel": "GRANT",
+        "source": "node18",
+        "target": "node2"
+      },
+      {
+        "id": "bb982fb1-1cf6-41c0-982a-efe048cadc98",
+        "cclabel": "A",
+        "source": "node22",
+        "target": "node15"
+      },
+      {
+        "id": "72b57a8d-b2d9-4e06-9c20-cdaefdb21488",
+        "cclabel": "GRANT",
+        "source": "node8",
+        "target": "node16"
+      },
+      {
+        "id": "d53b4162-06eb-4042-8d8b-245918cfd361",
+        "cclabel": "GRANT",
+        "source": "node1",
+        "target": "node14"
+      },
+      {
+        "id": "2faca391-25d6-4dd8-9e36-4aa4b3a9dce6",
+        "cclabel": "TAKE",
+        "source": "node27",
+        "target": "node29"
+      },
+      {
+        "id": "18e93d5e-b604-4e09-84b6-0d91c7e21f35",
+        "cclabel": "GRANT",
+        "source": "node2",
+        "target": "node22"
+      },
+      {
+        "id": "e7a3add5-8998-49aa-89b5-c3e8a01d5031",
+        "cclabel": "GRANT",
+        "source": "node14",
+        "target": "node4"
+      },
+      {
+        "id": "4f507530-f13b-470f-bcb1-a99bcff01c7b",
+        "cclabel": "A",
+        "source": "node20",
+        "target": "node24"
+      },
+      {
+        "id": "db7f6afb-1d77-4092-9bb4-b293026702d6",
+        "cclabel": "A",
+        "source": "node7",
+        "target": "node4"
+      },
+      {
+        "id": "f4d8946f-a18f-48fa-a40a-ce54e8bc3e24",
+        "cclabel": "A",
+        "source": "node6",
+        "target": "node7"
+      },
+      {
+        "id": "1a961d99-a99e-4ccb-a239-634748f95913",
+        "cclabel": "TAKE",
+        "source": "node10",
+        "target": "node29"
+      },
+      {
+        "id": "95e39f5b-4d45-4c72-b9a9-261e31fb833c",
+        "cclabel": "GRANT",
+        "source": "node8",
+        "target": "node13"
+      },
+      {
+        "id": "9672049e-27b5-4df7-926f-df764e679cd6",
+        "cclabel": "A",
+        "source": "node30",
+        "target": "node17"
+      },
+      {
+        "id": "8dbc75ad-f02b-4671-936e-ebb55fbd40bd",
+        "cclabel": "A",
+        "source": "node13",
+        "target": "node3"
+      },
+      {
+        "id": "5671f178-f78f-4370-ac11-d6c25b674f1a",
+        "cclabel": "A",
+        "source": "node4",
+        "target": "node27"
+      },
+      {
+        "id": "141b7c52-145c-41c1-8cc6-510b57c712ff",
+        "cclabel": "TAKE",
+        "source": "node27",
+        "target": "node23"
+      },
+      {
+        "id": "3935a2e4-8721-4049-8852-a129651e6a24",
+        "cclabel": "A",
+        "source": "node20",
+        "target": "node24"
+      },
+      {
+        "id": "366de6c0-e988-435d-ad3c-017cd85a0e56",
+        "cclabel": "A",
+        "source": "node24",
+        "target": "node27"
+      },
+      {
+        "id": "0d5c3ff2-ef38-4f9a-819b-aa3f28a61b4d",
+        "cclabel": "GRANT",
+        "source": "node10",
+        "target": "node24"
+      },
+      {
+        "id": "a53f8e92-cd43-473d-8954-6eb63e1dbfd6",
+        "cclabel": "GRANT",
+        "source": "node24",
+        "target": "node20"
+      },
+      {
+        "id": "7103c8af-df5c-407f-8d65-9f53515dca5f",
+        "cclabel": "GRANT",
+        "source": "node17",
+        "target": "node10"
+      },
+      {
+        "id": "0673ecf8-ee68-4179-bb6b-0615e4e56ac0",
+        "cclabel": "A",
+        "source": "node13",
+        "target": "node6"
+      },
+      {
+        "id": "2acd1947-fd92-48e8-9248-275fdf2d4777",
+        "cclabel": "A",
+        "source": "node15",
+        "target": "node13"
+      },
+      {
+        "id": "f9a10f76-a30e-4310-82c1-3a7e31470fc4",
+        "cclabel": "GRANT",
+        "source": "node17",
+        "target": "node11"
+      },
+      {
+        "id": "081e0721-c916-4f3d-abfe-3fc9e5030024",
+        "cclabel": "A",
+        "source": "node5",
+        "target": "node3"
+      },
+      {
+        "id": "e332d9bb-3c36-4647-ad60-5042ab724e52",
+        "cclabel": "A",
+        "source": "node23",
+        "target": "node30"
+      },
+      {
+        "id": "9a5f3899-9ba5-49d1-b929-cc5679a7e0be",
+        "cclabel": "GRANT",
+        "source": "node22",
+        "target": "node12"
+      },
+      {
+        "id": "9cfb620a-8c41-40c3-a79c-3de86972e725",
+        "cclabel": "A",
+        "source": "node26",
+        "target": "node23"
+      },
+      {
+        "id": "87cd4578-f3f7-40ba-83bb-3ef06960ebfc",
+        "cclabel": "A",
+        "source": "node2",
+        "target": "node22"
+      },
+      {
+        "id": "69ca2b65-c186-4850-9f8b-7339179f5479",
+        "cclabel": "GRANT",
+        "source": "node13",
+        "target": "node19"
+      },
+      {
+        "id": "3ba2842d-e8e9-4f2b-bc5a-09ae9edf718b",
+        "cclabel": "GRANT",
+        "source": "node13",
+        "target": "node2"
+      },
+      {
+        "id": "99d95569-057e-4fb2-877e-0de23eebccfd",
+        "cclabel": "TAKE",
+        "source": "node3",
+        "target": "node6"
+      },
+      {
+        "id": "fa24ed7d-59ca-4c23-ab4f-163369e9ae5d",
+        "cclabel": "A",
+        "source": "node4",
+        "target": "node8"
+      },
+      {
+        "id": "f86e2bf3-a5eb-49c9-8ad6-2190ab290d51",
+        "cclabel": "TAKE",
+        "source": "node10",
+        "target": "node25"
+      },
+      {
+        "id": "9e4e2440-7abe-40d1-807f-6a9dd870426d",
+        "cclabel": "TAKE",
+        "source": "node3",
+        "target": "node4"
+      },
+      {
+        "id": "83bb61c9-3b5b-4ee3-846b-c825af336e7e",
+        "cclabel": "TAKE",
+        "source": "node30",
+        "target": "node25"
+      },
+      {
+        "id": "8736b0b6-dc26-4544-aa33-53947966f315",
+        "cclabel": "A",
+        "source": "node10",
+        "target": "node7"
+      },
+      {
+        "id": "dc4ae425-cb7a-46a5-b216-c1068b8d1bc4",
+        "cclabel": "A",
+        "source": "node16",
+        "target": "node19"
+      },
+      {
+        "id": "2afeee34-c3a2-4c68-a094-2bcaad787110",
+        "cclabel": "TAKE",
+        "source": "node10",
+        "target": "node9"
+      },
+      {
+        "id": "ee759813-3334-44dd-a3b8-d08f6d9aca9b",
+        "cclabel": "GRANT",
+        "source": "node23",
+        "target": "node29"
+      },
+      {
+        "id": "b1f8779b-c449-406c-9c3b-493429918ce0",
+        "cclabel": "A",
+        "source": "node7",
+        "target": "node12"
+      },
+      {
+        "id": "7ac8e6d3-44ae-404a-9a22-2f087c25f3fd",
+        "cclabel": "TAKE",
+        "source": "node19",
+        "target": "node6"
+      },
+      {
+        "id": "d091d272-1b58-4a0a-a757-a9c93d7a83d9",
+        "cclabel": "A",
+        "source": "node7",
+        "target": "node24"
+      },
+      {
+        "id": "54587a37-35af-496b-b718-8e3a5f7d0856",
+        "cclabel": "TAKE",
+        "source": "node4",
+        "target": "node1"
+      },
+      {
+        "id": "1442c839-2f76-4083-a024-674ca91a0576",
+        "cclabel": "GRANT",
+        "source": "node19",
+        "target": "node17"
+      },
+      {
+        "id": "0f4cd4b0-ebf5-44f5-be34-1cd703e23f5f",
+        "cclabel": "GRANT",
+        "source": "node10",
+        "target": "node19"
+      }
+    ]
+  }
+}

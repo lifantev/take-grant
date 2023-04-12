@@ -45,6 +45,8 @@ def read_graph(filename: str) -> tuple[nx.MultiDiGraph, dict[str, str], dict[str
 
 
 def print_graph(graph: nx.MultiDiGraph, filename: str, nodes_to_labels: dict[str, str], edges_to_labels: dict[tuple, str]):
+    f = plt.figure(figsize=(100,100))
+    f.tight_layout()
     plt.subplot(111)
     pos = nx.spring_layout(graph)
     nx.draw(graph, pos=pos, with_labels=True, labels=nodes_to_labels)
@@ -118,12 +120,12 @@ def is_island_bridge(
         graph: nx.MultiDiGraph, edge: dict[str, str], node: str,
         prev_edge: dict[str, str] | None, prev_node: str) -> bool:
 
-    if edge != None:
+    if edge is not None:
         e_src, e_tgt, e_data = edge[SOURCE], edge[TARGET], edge
     else:
         return False
 
-    if prev_edge != None:
+    if prev_edge is not None:
         pe_src, pe_tgt, pe_data = prev_edge[SOURCE], prev_edge[TARGET], prev_edge
 
     # only tg-paths allowed
@@ -131,7 +133,7 @@ def is_island_bridge(
         return False
 
     # start of the tg-path
-    if prev_edge == None:
+    if prev_edge is None:
         if graph.nodes[node][NODE_TYPE] == SUBJECT:
             return True
         return False
@@ -189,21 +191,18 @@ def is_island_bridge_path(args: tuple[nx.MultiDiGraph, nx.MultiGraph, tuple[str,
         return ok_path
 
     paths = list(nx.all_simple_edge_paths(graph_view, xi, si))
-    results = []
     log.info('[is_island_brifge_path:xi=%s, si=%s] paths=%s', xi, si, paths)
     for path in paths:
-        t = threading.Thread(target=lambda: results.append(check_path(path)))
-        t.start()
-    for t in threading.enumerate():
-        if t is not threading.current_thread():
-            t.join()
-    return any(results)
+        if check_path(path):
+            return True
+    return False
 
 
 def can_share(graph: nx.MultiDiGraph, a: str, x: str, y: str) -> bool:
 
     # condition 1
-    if any(edge_data[EDGE_TYPE] == a for edge_data in graph.get_edge_data(x, y).values()):
+    x_y_edge = graph.get_edge_data(x, y)
+    if x_y_edge is not None and any(edge_data[EDGE_TYPE] == a for edge_data in x_y_edge.values()):
         log.info('[can_share:condition #1] true')
         return True
 
@@ -240,7 +239,17 @@ def can_share(graph: nx.MultiDiGraph, a: str, x: str, y: str) -> bool:
 
 
 if __name__ == '__main__':
-    g, nodes_to_labels, edges_to_labels = read_graph('./test/takegrant_example.json')
-    print_graph(g, './view/takegrant_example_view', nodes_to_labels, edges_to_labels)
-    print(can_share(graph=g, a='READ', x='e6c588de-9f16-46a0-bd22-c96f76873911',
-                    y='d9f8d86c-48a9-4ffc-a122-26da3f3452eb'))
+    name = 'random_graph_30_75'
+    g, nodes_to_labels, edges_to_labels = read_graph(f'./test/{name}.json')
+    
+    # print_graph(g, f'./view/{name}_view', nodes_to_labels, edges_to_labels)
+    
+    x = "node22"
+    y = "node9"
+    # print(nx.has_path(g.to_undirected(as_view=True), x, y))
+    print(len(list(nx.all_simple_edge_paths(g.to_undirected(as_view=True), x, y))))
+    
+    # print(can_share(graph=g, a='WRITE', x='node87', y='node15'))
+    
+    # print(can_share(graph=g, a='READ', x='e6c588de-9f16-46a0-bd22-c96f76873911',
+    #                 y='d9f8d86c-48a9-4ffc-a122-26da3f3452eb'))

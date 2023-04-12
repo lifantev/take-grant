@@ -1,0 +1,1709 @@
+{
+  "graph": {
+    "id": "100_200",
+    "nodes": [
+      {
+        "label": "node1",
+        "id": "node1",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node2",
+        "id": "node2",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node3",
+        "id": "node3",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node4",
+        "id": "node4",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node5",
+        "id": "node5",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node6",
+        "id": "node6",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node7",
+        "id": "node7",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node8",
+        "id": "node8",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node9",
+        "id": "node9",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node10",
+        "id": "node10",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node11",
+        "id": "node11",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node12",
+        "id": "node12",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node13",
+        "id": "node13",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node14",
+        "id": "node14",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node15",
+        "id": "node15",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node16",
+        "id": "node16",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node17",
+        "id": "node17",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node18",
+        "id": "node18",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node19",
+        "id": "node19",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node20",
+        "id": "node20",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node21",
+        "id": "node21",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node22",
+        "id": "node22",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node23",
+        "id": "node23",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node24",
+        "id": "node24",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node25",
+        "id": "node25",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node26",
+        "id": "node26",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node27",
+        "id": "node27",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node28",
+        "id": "node28",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node29",
+        "id": "node29",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node30",
+        "id": "node30",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node31",
+        "id": "node31",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node32",
+        "id": "node32",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node33",
+        "id": "node33",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node34",
+        "id": "node34",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node35",
+        "id": "node35",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node36",
+        "id": "node36",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node37",
+        "id": "node37",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node38",
+        "id": "node38",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node39",
+        "id": "node39",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node40",
+        "id": "node40",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node41",
+        "id": "node41",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node42",
+        "id": "node42",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node43",
+        "id": "node43",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node44",
+        "id": "node44",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node45",
+        "id": "node45",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node46",
+        "id": "node46",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node47",
+        "id": "node47",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node48",
+        "id": "node48",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node49",
+        "id": "node49",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node50",
+        "id": "node50",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node51",
+        "id": "node51",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node52",
+        "id": "node52",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node53",
+        "id": "node53",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node54",
+        "id": "node54",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node55",
+        "id": "node55",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node56",
+        "id": "node56",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node57",
+        "id": "node57",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node58",
+        "id": "node58",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node59",
+        "id": "node59",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node60",
+        "id": "node60",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node61",
+        "id": "node61",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node62",
+        "id": "node62",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node63",
+        "id": "node63",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node64",
+        "id": "node64",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node65",
+        "id": "node65",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node66",
+        "id": "node66",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node67",
+        "id": "node67",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node68",
+        "id": "node68",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node69",
+        "id": "node69",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node70",
+        "id": "node70",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node71",
+        "id": "node71",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node72",
+        "id": "node72",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node73",
+        "id": "node73",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node74",
+        "id": "node74",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node75",
+        "id": "node75",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node76",
+        "id": "node76",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node77",
+        "id": "node77",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node78",
+        "id": "node78",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node79",
+        "id": "node79",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node80",
+        "id": "node80",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node81",
+        "id": "node81",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node82",
+        "id": "node82",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node83",
+        "id": "node83",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node84",
+        "id": "node84",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node85",
+        "id": "node85",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node86",
+        "id": "node86",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node87",
+        "id": "node87",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node88",
+        "id": "node88",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node89",
+        "id": "node89",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node90",
+        "id": "node90",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node91",
+        "id": "node91",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node92",
+        "id": "node92",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node93",
+        "id": "node93",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node94",
+        "id": "node94",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node95",
+        "id": "node95",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node96",
+        "id": "node96",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node97",
+        "id": "node97",
+        "active": "OBJECT"
+      },
+      {
+        "label": "node98",
+        "id": "node98",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node99",
+        "id": "node99",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "node100",
+        "id": "node100",
+        "active": "OBJECT"
+      }
+    ],
+    "edges": [
+      {
+        "id": "d88eb204-2b5f-4992-bb1b-07af75e8da6e",
+        "cclabel": "READ",
+        "source": "node60",
+        "target": "node100"
+      },
+      {
+        "id": "5eea4202-b9a1-400e-a847-bbbf217814d6",
+        "cclabel": "TAKE",
+        "source": "node84",
+        "target": "node49"
+      },
+      {
+        "id": "17093250-8048-46a2-939a-a97e65270c3c",
+        "cclabel": "WRITE",
+        "source": "node24",
+        "target": "node60"
+      },
+      {
+        "id": "67b75270-2e7c-48ad-94ed-a55e4ffa3038",
+        "cclabel": "GRANT",
+        "source": "node51",
+        "target": "node82"
+      },
+      {
+        "id": "a42914f3-c58d-4db1-8f7e-efb28d83395c",
+        "cclabel": "READ",
+        "source": "node91",
+        "target": "node50"
+      },
+      {
+        "id": "7dcd55d9-d0c2-41c3-af32-d12916d6d271",
+        "cclabel": "READ",
+        "source": "node22",
+        "target": "node76"
+      },
+      {
+        "id": "1558c90c-b06d-4117-afa8-2324d395b7a5",
+        "cclabel": "TAKE",
+        "source": "node56",
+        "target": "node6"
+      },
+      {
+        "id": "4a82f61d-7276-4b31-bd77-2c3a2bb87a5b",
+        "cclabel": "WRITE",
+        "source": "node43",
+        "target": "node66"
+      },
+      {
+        "id": "aea89d66-231e-47eb-a0d3-9b76214f79c5",
+        "cclabel": "GRANT",
+        "source": "node87",
+        "target": "node76"
+      },
+      {
+        "id": "4a2e0f6a-05d5-4d10-8b61-bcaf268d8cce",
+        "cclabel": "GRANT",
+        "source": "node75",
+        "target": "node100"
+      },
+      {
+        "id": "bc444409-3383-4676-89e2-a28695ef0cd8",
+        "cclabel": "WRITE",
+        "source": "node3",
+        "target": "node58"
+      },
+      {
+        "id": "62301dce-f4ec-4b86-89f8-7e36902b2b2b",
+        "cclabel": "WRITE",
+        "source": "node97",
+        "target": "node82"
+      },
+      {
+        "id": "cfdfbd52-4e70-4063-8b1f-a614e14ddc63",
+        "cclabel": "A",
+        "source": "node8",
+        "target": "node86"
+      },
+      {
+        "id": "0ba777b2-4a6b-41f4-8143-b44ef18edf90",
+        "cclabel": "A",
+        "source": "node58",
+        "target": "node43"
+      },
+      {
+        "id": "27c03522-c47c-4a25-be29-24122f59f9dc",
+        "cclabel": "READ",
+        "source": "node33",
+        "target": "node57"
+      },
+      {
+        "id": "0a9d07ad-2a00-4f96-8093-06da3b369fa4",
+        "cclabel": "TAKE",
+        "source": "node11",
+        "target": "node60"
+      },
+      {
+        "id": "95f8e83c-726a-4326-a640-a588bba347c0",
+        "cclabel": "READ",
+        "source": "node36",
+        "target": "node8"
+      },
+      {
+        "id": "37bd5092-0fa7-4f0f-94eb-56387e2cd110",
+        "cclabel": "READ",
+        "source": "node79",
+        "target": "node16"
+      },
+      {
+        "id": "fcbb1211-01f8-48e1-8116-b824d121c1c4",
+        "cclabel": "GRANT",
+        "source": "node33",
+        "target": "node68"
+      },
+      {
+        "id": "93946870-e661-4761-b34e-f541b4838778",
+        "cclabel": "TAKE",
+        "source": "node36",
+        "target": "node17"
+      },
+      {
+        "id": "24ba5b44-8516-4f76-a381-b8461159c7d7",
+        "cclabel": "WRITE",
+        "source": "node54",
+        "target": "node22"
+      },
+      {
+        "id": "4096372c-0751-4865-add4-7407e9753bd5",
+        "cclabel": "TAKE",
+        "source": "node32",
+        "target": "node72"
+      },
+      {
+        "id": "b3c95a3a-583b-4b70-88c8-f3f59cbd467d",
+        "cclabel": "TAKE",
+        "source": "node44",
+        "target": "node94"
+      },
+      {
+        "id": "66f10ef8-0d0b-42fa-83a8-857499da03e2",
+        "cclabel": "TAKE",
+        "source": "node64",
+        "target": "node88"
+      },
+      {
+        "id": "d691995c-b044-4d8e-9fb6-f21c43c8d0c4",
+        "cclabel": "A",
+        "source": "node81",
+        "target": "node36"
+      },
+      {
+        "id": "fb52435c-916b-443a-bf00-ca41ff37b51e",
+        "cclabel": "GRANT",
+        "source": "node67",
+        "target": "node38"
+      },
+      {
+        "id": "d4a1f91d-bd56-42c1-ade3-1d1d7b2c90f3",
+        "cclabel": "TAKE",
+        "source": "node54",
+        "target": "node75"
+      },
+      {
+        "id": "9e2b463e-ca55-4b55-a387-4d8b285b0847",
+        "cclabel": "GRANT",
+        "source": "node90",
+        "target": "node89"
+      },
+      {
+        "id": "958bb6fe-ee4d-4996-a927-82c7064d6bf6",
+        "cclabel": "WRITE",
+        "source": "node59",
+        "target": "node70"
+      },
+      {
+        "id": "121422b5-f1dc-4bfc-a703-e0e56305b7c0",
+        "cclabel": "A",
+        "source": "node9",
+        "target": "node54"
+      },
+      {
+        "id": "001146cb-05e9-42a3-866a-1c5ee6896ca1",
+        "cclabel": "WRITE",
+        "source": "node90",
+        "target": "node71"
+      },
+      {
+        "id": "2c93106f-6ccf-4bc1-ab26-9e9dbf913e0a",
+        "cclabel": "A",
+        "source": "node51",
+        "target": "node82"
+      },
+      {
+        "id": "7a80e054-a52e-494c-9afa-b61231ac7be0",
+        "cclabel": "A",
+        "source": "node50",
+        "target": "node80"
+      },
+      {
+        "id": "a49c13ca-51ba-42ff-b540-826ecc517816",
+        "cclabel": "READ",
+        "source": "node4",
+        "target": "node93"
+      },
+      {
+        "id": "ef9f68a5-1200-4846-b97b-05bf6c4350c8",
+        "cclabel": "READ",
+        "source": "node9",
+        "target": "node100"
+      },
+      {
+        "id": "d2510c96-1cab-44ba-8e7a-d5f68c0c1463",
+        "cclabel": "GRANT",
+        "source": "node94",
+        "target": "node100"
+      },
+      {
+        "id": "f3bc025e-2daf-43ce-8928-777d8e1682f5",
+        "cclabel": "TAKE",
+        "source": "node11",
+        "target": "node56"
+      },
+      {
+        "id": "878a99af-36b3-4980-979d-8ea380de46c4",
+        "cclabel": "A",
+        "source": "node30",
+        "target": "node12"
+      },
+      {
+        "id": "f6617c29-b446-4975-98f3-845162fee2bb",
+        "cclabel": "CREATE",
+        "source": "node29",
+        "target": "node55"
+      },
+      {
+        "id": "8a9954ac-6f3b-433f-a494-6d44641e669d",
+        "cclabel": "TAKE",
+        "source": "node55",
+        "target": "node12"
+      },
+      {
+        "id": "1de2d825-2d6b-4176-a0e3-0d1d1e001d91",
+        "cclabel": "A",
+        "source": "node41",
+        "target": "node47"
+      },
+      {
+        "id": "8390471c-c5cd-4345-8a15-60eab5a161e2",
+        "cclabel": "A",
+        "source": "node12",
+        "target": "node10"
+      },
+      {
+        "id": "b5881b33-af79-4209-af08-964e8f468d59",
+        "cclabel": "TAKE",
+        "source": "node56",
+        "target": "node57"
+      },
+      {
+        "id": "a8580a08-18a1-4537-a554-33a76a429777",
+        "cclabel": "READ",
+        "source": "node28",
+        "target": "node63"
+      },
+      {
+        "id": "7b5ca27c-0a85-4c93-8017-365d4e2ac041",
+        "cclabel": "GRANT",
+        "source": "node98",
+        "target": "node16"
+      },
+      {
+        "id": "d7a2baf9-b620-4fa7-8fdf-4703dfe7560a",
+        "cclabel": "A",
+        "source": "node32",
+        "target": "node89"
+      },
+      {
+        "id": "2c2306ad-590a-49f8-b186-10430d5653ba",
+        "cclabel": "TAKE",
+        "source": "node99",
+        "target": "node92"
+      },
+      {
+        "id": "3191147b-ed64-4c7d-8207-1a3e87831362",
+        "cclabel": "GRANT",
+        "source": "node76",
+        "target": "node92"
+      },
+      {
+        "id": "70bf6437-0c5a-48ca-ad22-07eb597681c8",
+        "cclabel": "TAKE",
+        "source": "node39",
+        "target": "node28"
+      },
+      {
+        "id": "fcaa56bb-1b0e-43cd-9d83-e556e6bbd440",
+        "cclabel": "A",
+        "source": "node39",
+        "target": "node24"
+      },
+      {
+        "id": "911a403c-2a8f-4a86-89d8-c6e2de0aed0e",
+        "cclabel": "WRITE",
+        "source": "node42",
+        "target": "node43"
+      },
+      {
+        "id": "58cd9e0d-d1b2-418a-830c-c7dbee80c839",
+        "cclabel": "TAKE",
+        "source": "node86",
+        "target": "node18"
+      },
+      {
+        "id": "3af8d5eb-01dc-4e13-9c83-3e6bf7472c2a",
+        "cclabel": "WRITE",
+        "source": "node67",
+        "target": "node15"
+      },
+      {
+        "id": "42c8eae3-2de9-4e91-a793-e44c53d55d02",
+        "cclabel": "READ",
+        "source": "node17",
+        "target": "node11"
+      },
+      {
+        "id": "2ed5d37a-0c63-4a09-ab73-31a045efbb66",
+        "cclabel": "TAKE",
+        "source": "node70",
+        "target": "node24"
+      },
+      {
+        "id": "0e1b937e-28ff-4347-94e6-c055fd324020",
+        "cclabel": "READ",
+        "source": "node80",
+        "target": "node52"
+      },
+      {
+        "id": "8e514d75-b88d-4acc-9737-89240ffcaa65",
+        "cclabel": "GRANT",
+        "source": "node47",
+        "target": "node90"
+      },
+      {
+        "id": "ea2d8f25-24cb-4afc-8a90-b088df9d4ec4",
+        "cclabel": "GRANT",
+        "source": "node17",
+        "target": "node34"
+      },
+      {
+        "id": "0694a7ac-e9a2-409d-9154-75b5ece08e9a",
+        "cclabel": "CREATE",
+        "source": "node73",
+        "target": "node91"
+      },
+      {
+        "id": "1a249693-1383-44c5-a78d-26fbdc27f557",
+        "cclabel": "A",
+        "source": "node42",
+        "target": "node74"
+      },
+      {
+        "id": "ae924789-c510-4d24-b179-279d6c886ffd",
+        "cclabel": "TAKE",
+        "source": "node66",
+        "target": "node15"
+      },
+      {
+        "id": "fbf47e4f-659f-4035-86cf-c2387feb8093",
+        "cclabel": "GRANT",
+        "source": "node33",
+        "target": "node44"
+      },
+      {
+        "id": "65634eff-788c-45d0-a0ce-a890cd8c28db",
+        "cclabel": "CREATE",
+        "source": "node22",
+        "target": "node19"
+      },
+      {
+        "id": "ef207161-e8dd-471b-82f7-ee651ee52b04",
+        "cclabel": "CREATE",
+        "source": "node11",
+        "target": "node49"
+      },
+      {
+        "id": "e03b2ecc-ca74-46d3-9aaf-d5fc794ccdde",
+        "cclabel": "A",
+        "source": "node92",
+        "target": "node18"
+      },
+      {
+        "id": "3bdec97e-60d8-4878-9267-c45ded470bdc",
+        "cclabel": "READ",
+        "source": "node37",
+        "target": "node10"
+      },
+      {
+        "id": "ccf6e631-c918-44e1-9e73-1e151ccb014a",
+        "cclabel": "A",
+        "source": "node92",
+        "target": "node37"
+      },
+      {
+        "id": "c31690a1-2672-4178-b91c-f9dfa65764b9",
+        "cclabel": "CREATE",
+        "source": "node71",
+        "target": "node69"
+      },
+      {
+        "id": "0acfd908-0274-415e-8be4-d23f76411439",
+        "cclabel": "WRITE",
+        "source": "node99",
+        "target": "node94"
+      },
+      {
+        "id": "a9a5b535-0743-4b1e-bf2c-47ae0774b654",
+        "cclabel": "CREATE",
+        "source": "node83",
+        "target": "node19"
+      },
+      {
+        "id": "686097d4-b045-458c-bcfc-6adf3bc47eaa",
+        "cclabel": "READ",
+        "source": "node70",
+        "target": "node15"
+      },
+      {
+        "id": "76ed94e1-e250-45fa-864b-1ce381b88849",
+        "cclabel": "WRITE",
+        "source": "node28",
+        "target": "node11"
+      },
+      {
+        "id": "0aed618f-b646-4e91-a071-03c6465708c6",
+        "cclabel": "READ",
+        "source": "node82",
+        "target": "node2"
+      },
+      {
+        "id": "a293ab1f-29d9-4894-9c12-5c8f71689e06",
+        "cclabel": "GRANT",
+        "source": "node10",
+        "target": "node27"
+      },
+      {
+        "id": "8ef417f5-851c-4a56-9b0e-414ec54ce55e",
+        "cclabel": "READ",
+        "source": "node79",
+        "target": "node58"
+      },
+      {
+        "id": "1f0e9f46-ae6c-4c1f-a248-cb113a802a91",
+        "cclabel": "WRITE",
+        "source": "node64",
+        "target": "node15"
+      },
+      {
+        "id": "c23f1788-cd09-434d-bcf8-98ec0f4352f7",
+        "cclabel": "WRITE",
+        "source": "node17",
+        "target": "node75"
+      },
+      {
+        "id": "33211d47-b129-48e5-be3b-2a56eab4bddc",
+        "cclabel": "CREATE",
+        "source": "node86",
+        "target": "node92"
+      },
+      {
+        "id": "598bcf3e-2af2-405b-b5a5-a33b0809aa68",
+        "cclabel": "TAKE",
+        "source": "node2",
+        "target": "node50"
+      },
+      {
+        "id": "4c87646b-2dbd-4c44-a70d-224e0b239e94",
+        "cclabel": "TAKE",
+        "source": "node47",
+        "target": "node76"
+      },
+      {
+        "id": "fa1df853-d0a0-4245-a4f3-b57c1f36221a",
+        "cclabel": "READ",
+        "source": "node90",
+        "target": "node54"
+      },
+      {
+        "id": "03c12ef3-076f-43e9-bd3c-2c1cd59c8bae",
+        "cclabel": "A",
+        "source": "node51",
+        "target": "node64"
+      },
+      {
+        "id": "403be97d-9202-44bd-b662-3b964e185d96",
+        "cclabel": "WRITE",
+        "source": "node64",
+        "target": "node76"
+      },
+      {
+        "id": "b892a599-448d-4c28-bc49-201173f7619e",
+        "cclabel": "WRITE",
+        "source": "node62",
+        "target": "node67"
+      },
+      {
+        "id": "b1d41977-a0e7-4a57-8c3a-552c877b9e4b",
+        "cclabel": "TAKE",
+        "source": "node21",
+        "target": "node50"
+      },
+      {
+        "id": "4937a1ff-171b-458c-8b58-27993b9649a8",
+        "cclabel": "CREATE",
+        "source": "node16",
+        "target": "node24"
+      },
+      {
+        "id": "a8694c6b-39c2-454c-a8bb-06eea2d1d173",
+        "cclabel": "READ",
+        "source": "node36",
+        "target": "node78"
+      },
+      {
+        "id": "06ec7cd3-0583-469d-aa9f-d7649b54d5e3",
+        "cclabel": "WRITE",
+        "source": "node82",
+        "target": "node89"
+      },
+      {
+        "id": "eb2b73b4-43a3-40d2-b60c-7a0ecee042a8",
+        "cclabel": "TAKE",
+        "source": "node63",
+        "target": "node34"
+      },
+      {
+        "id": "8714c3b4-27a9-42ea-9105-56ecd946ad92",
+        "cclabel": "WRITE",
+        "source": "node51",
+        "target": "node98"
+      },
+      {
+        "id": "984096bc-38f2-4674-a8ad-af569793b97e",
+        "cclabel": "TAKE",
+        "source": "node78",
+        "target": "node48"
+      },
+      {
+        "id": "dda0b385-38a6-4f34-84d6-4cf6363f75a5",
+        "cclabel": "GRANT",
+        "source": "node8",
+        "target": "node78"
+      },
+      {
+        "id": "c942bc37-4dc5-4088-a07e-40ae15969e09",
+        "cclabel": "GRANT",
+        "source": "node37",
+        "target": "node71"
+      },
+      {
+        "id": "f7ed2bb1-64e9-4f2c-b974-3b7ed00c3164",
+        "cclabel": "GRANT",
+        "source": "node29",
+        "target": "node74"
+      },
+      {
+        "id": "5981856a-9958-4921-ac54-d11405d3b43f",
+        "cclabel": "WRITE",
+        "source": "node52",
+        "target": "node15"
+      },
+      {
+        "id": "105b9c9c-18c7-4322-84c8-f9cc149d6202",
+        "cclabel": "WRITE",
+        "source": "node9",
+        "target": "node36"
+      },
+      {
+        "id": "4531a8d0-3a48-4d3f-97ca-1b0357116820",
+        "cclabel": "CREATE",
+        "source": "node93",
+        "target": "node50"
+      },
+      {
+        "id": "58fcb720-ce97-47bc-8be1-bb58ad1b29b2",
+        "cclabel": "CREATE",
+        "source": "node81",
+        "target": "node41"
+      },
+      {
+        "id": "4bf9b90a-8cdb-4c26-a838-8fd7e1d8ce94",
+        "cclabel": "GRANT",
+        "source": "node80",
+        "target": "node94"
+      },
+      {
+        "id": "960b5091-a9bb-4908-9045-973b4b420ec7",
+        "cclabel": "WRITE",
+        "source": "node60",
+        "target": "node3"
+      },
+      {
+        "id": "7ea7688b-fd58-428c-a7c2-21d5af974c62",
+        "cclabel": "A",
+        "source": "node98",
+        "target": "node12"
+      },
+      {
+        "id": "1d4fc65c-cf21-424e-97d2-2be82e6c0814",
+        "cclabel": "GRANT",
+        "source": "node100",
+        "target": "node7"
+      },
+      {
+        "id": "e24ba009-05ac-4904-8b84-e5e6e31e129f",
+        "cclabel": "READ",
+        "source": "node48",
+        "target": "node91"
+      },
+      {
+        "id": "3dae0007-6b4d-4b14-811e-6db1f7be8942",
+        "cclabel": "GRANT",
+        "source": "node26",
+        "target": "node28"
+      },
+      {
+        "id": "d4a75e6b-e0bb-47e2-8145-a4e282213def",
+        "cclabel": "READ",
+        "source": "node94",
+        "target": "node34"
+      },
+      {
+        "id": "4321bca8-67b8-49ae-b128-7271ee93dc0f",
+        "cclabel": "READ",
+        "source": "node97",
+        "target": "node57"
+      },
+      {
+        "id": "889217e8-2da4-476c-8d85-beb41aacc38e",
+        "cclabel": "A",
+        "source": "node53",
+        "target": "node50"
+      },
+      {
+        "id": "9eb5408f-09b2-4e2e-a268-1157ad44d244",
+        "cclabel": "WRITE",
+        "source": "node7",
+        "target": "node46"
+      },
+      {
+        "id": "2a8768e0-4748-404a-b627-ad5b5068e3df",
+        "cclabel": "READ",
+        "source": "node37",
+        "target": "node15"
+      },
+      {
+        "id": "9685cb5f-0324-49d3-a256-25f8d2e1cf38",
+        "cclabel": "READ",
+        "source": "node56",
+        "target": "node42"
+      },
+      {
+        "id": "6aeeaaf5-ffb8-4a1d-9723-82158011bdcf",
+        "cclabel": "GRANT",
+        "source": "node1",
+        "target": "node75"
+      },
+      {
+        "id": "8e142e1f-9211-4b14-baaf-acc07606ca23",
+        "cclabel": "WRITE",
+        "source": "node95",
+        "target": "node27"
+      },
+      {
+        "id": "942477b2-c271-4c2a-80bf-ccd6df46552b",
+        "cclabel": "GRANT",
+        "source": "node52",
+        "target": "node99"
+      },
+      {
+        "id": "3d106f76-0402-404d-ac9b-2ec3952dc41b",
+        "cclabel": "TAKE",
+        "source": "node33",
+        "target": "node65"
+      },
+      {
+        "id": "34ccee1a-6648-4042-a469-a4791a133eba",
+        "cclabel": "WRITE",
+        "source": "node80",
+        "target": "node88"
+      },
+      {
+        "id": "2efe7f6b-31c5-4de8-8458-c25a484e8f33",
+        "cclabel": "READ",
+        "source": "node19",
+        "target": "node70"
+      },
+      {
+        "id": "c3c55676-67da-404d-8520-dca74dd97157",
+        "cclabel": "CREATE",
+        "source": "node74",
+        "target": "node37"
+      },
+      {
+        "id": "e3b358db-c3d5-4068-b238-ad8f3af87e8a",
+        "cclabel": "A",
+        "source": "node32",
+        "target": "node42"
+      },
+      {
+        "id": "468ddbaf-19a2-4887-b533-f80a7a17d571",
+        "cclabel": "GRANT",
+        "source": "node78",
+        "target": "node16"
+      },
+      {
+        "id": "10098267-51af-45c2-b5c3-f35b02679ee0",
+        "cclabel": "GRANT",
+        "source": "node91",
+        "target": "node68"
+      },
+      {
+        "id": "352a96fb-b797-401b-9e30-3c463ec721d2",
+        "cclabel": "CREATE",
+        "source": "node59",
+        "target": "node30"
+      },
+      {
+        "id": "b4785b63-21eb-41b3-864b-63005ca0eb22",
+        "cclabel": "WRITE",
+        "source": "node50",
+        "target": "node15"
+      },
+      {
+        "id": "89e48914-1a6f-465b-94b4-42d3031a1963",
+        "cclabel": "A",
+        "source": "node62",
+        "target": "node68"
+      },
+      {
+        "id": "6dbd7b04-3c35-4d78-89bd-f68356b336aa",
+        "cclabel": "CREATE",
+        "source": "node54",
+        "target": "node22"
+      },
+      {
+        "id": "e99417f2-9a8c-420a-a37d-f7337f7535d3",
+        "cclabel": "CREATE",
+        "source": "node87",
+        "target": "node62"
+      },
+      {
+        "id": "1bf745a8-9708-407e-8de7-07c21155461c",
+        "cclabel": "A",
+        "source": "node22",
+        "target": "node23"
+      },
+      {
+        "id": "fc669210-9595-44fe-8e4f-00926071d935",
+        "cclabel": "CREATE",
+        "source": "node61",
+        "target": "node90"
+      },
+      {
+        "id": "5782b52a-afa0-4749-bb46-bc7a0b153b2e",
+        "cclabel": "CREATE",
+        "source": "node85",
+        "target": "node55"
+      },
+      {
+        "id": "89583950-9117-4a42-a309-bd1c5518aa3e",
+        "cclabel": "CREATE",
+        "source": "node88",
+        "target": "node77"
+      },
+      {
+        "id": "5cd13155-0304-47ce-a56a-e781d1e03c37",
+        "cclabel": "WRITE",
+        "source": "node5",
+        "target": "node93"
+      },
+      {
+        "id": "4b9a2fe7-6cf4-42fc-bdee-a2bff8b5b832",
+        "cclabel": "WRITE",
+        "source": "node59",
+        "target": "node6"
+      },
+      {
+        "id": "c80a587a-5839-48ed-ac3e-a9dd1c4105f7",
+        "cclabel": "GRANT",
+        "source": "node100",
+        "target": "node22"
+      },
+      {
+        "id": "0bb68520-317d-4286-9313-c4489feec9ad",
+        "cclabel": "TAKE",
+        "source": "node69",
+        "target": "node73"
+      },
+      {
+        "id": "c8d4461e-5493-45bb-9154-2ed700070569",
+        "cclabel": "A",
+        "source": "node35",
+        "target": "node19"
+      },
+      {
+        "id": "01788c2c-1910-47ff-ab6e-c0eeb4351942",
+        "cclabel": "READ",
+        "source": "node79",
+        "target": "node29"
+      },
+      {
+        "id": "82fe6c4f-ce66-4aea-822a-aeccbe6aec7e",
+        "cclabel": "WRITE",
+        "source": "node21",
+        "target": "node70"
+      },
+      {
+        "id": "5ef57f2d-e343-455f-86c2-0aa2200cc6b3",
+        "cclabel": "A",
+        "source": "node55",
+        "target": "node95"
+      },
+      {
+        "id": "f5b29a96-0d24-4793-bfdb-1a50a89eea89",
+        "cclabel": "GRANT",
+        "source": "node74",
+        "target": "node42"
+      },
+      {
+        "id": "53f417f8-66fc-4bca-98a0-dd58d5b85b87",
+        "cclabel": "CREATE",
+        "source": "node20",
+        "target": "node75"
+      },
+      {
+        "id": "2ae67ce4-b7a5-4c70-a4a9-397838e7e54d",
+        "cclabel": "TAKE",
+        "source": "node72",
+        "target": "node67"
+      },
+      {
+        "id": "849a8078-29af-4fcb-b225-c506242ac2d8",
+        "cclabel": "WRITE",
+        "source": "node76",
+        "target": "node60"
+      },
+      {
+        "id": "cfa263f0-1f82-464d-95d8-6c515845586b",
+        "cclabel": "READ",
+        "source": "node49",
+        "target": "node74"
+      },
+      {
+        "id": "38c592a8-52e9-4bb2-8c4d-caa7c05a525d",
+        "cclabel": "TAKE",
+        "source": "node54",
+        "target": "node86"
+      },
+      {
+        "id": "e87c20f0-d0c4-4424-ada0-bd5dc40d29e7",
+        "cclabel": "A",
+        "source": "node41",
+        "target": "node66"
+      },
+      {
+        "id": "ac7ecdaa-2dfe-40eb-8dee-2ced50e36cc7",
+        "cclabel": "READ",
+        "source": "node97",
+        "target": "node39"
+      },
+      {
+        "id": "423f840f-64ca-48ae-848e-3f8e4d9972e1",
+        "cclabel": "CREATE",
+        "source": "node70",
+        "target": "node49"
+      },
+      {
+        "id": "ff0bffcc-f5b8-4053-a9b0-3d12b3209316",
+        "cclabel": "CREATE",
+        "source": "node78",
+        "target": "node46"
+      },
+      {
+        "id": "ab493a98-3069-47e6-847d-4dc2d785fae6",
+        "cclabel": "TAKE",
+        "source": "node27",
+        "target": "node39"
+      },
+      {
+        "id": "5b917a34-8484-426f-8c06-f720dc98179d",
+        "cclabel": "CREATE",
+        "source": "node80",
+        "target": "node47"
+      },
+      {
+        "id": "fd9fc9b5-715d-40e8-8309-4caf6b79f409",
+        "cclabel": "WRITE",
+        "source": "node80",
+        "target": "node45"
+      },
+      {
+        "id": "1fc244a5-b20d-4f0b-9322-8ae8cb412e98",
+        "cclabel": "TAKE",
+        "source": "node76",
+        "target": "node97"
+      },
+      {
+        "id": "1c110671-631e-4ac1-a13b-a36fa5a04d97",
+        "cclabel": "TAKE",
+        "source": "node46",
+        "target": "node19"
+      },
+      {
+        "id": "88800a9f-b7b6-4c47-8db1-468af28e5d81",
+        "cclabel": "CREATE",
+        "source": "node81",
+        "target": "node23"
+      },
+      {
+        "id": "29c2c055-bb4a-4425-a40b-36f99e16855f",
+        "cclabel": "WRITE",
+        "source": "node73",
+        "target": "node62"
+      },
+      {
+        "id": "25c1ec69-0a4f-45d2-8c82-3c955861e918",
+        "cclabel": "TAKE",
+        "source": "node17",
+        "target": "node25"
+      },
+      {
+        "id": "7e5e76bf-d491-4c1d-9672-8f31182e5e18",
+        "cclabel": "TAKE",
+        "source": "node45",
+        "target": "node12"
+      },
+      {
+        "id": "4e98ff90-68c4-4651-aed1-dbb8abd87aa0",
+        "cclabel": "GRANT",
+        "source": "node89",
+        "target": "node91"
+      },
+      {
+        "id": "589a72cb-c4a9-48cf-ab45-89b79f9b6303",
+        "cclabel": "WRITE",
+        "source": "node39",
+        "target": "node70"
+      },
+      {
+        "id": "1845385d-71b7-449f-9e2c-247d069d8d55",
+        "cclabel": "WRITE",
+        "source": "node33",
+        "target": "node83"
+      },
+      {
+        "id": "3f8070b3-7c1e-4fc2-9478-a5a5a3536d44",
+        "cclabel": "WRITE",
+        "source": "node5",
+        "target": "node70"
+      },
+      {
+        "id": "f3e3586d-7091-41a0-9d34-b7c05874686b",
+        "cclabel": "TAKE",
+        "source": "node27",
+        "target": "node25"
+      },
+      {
+        "id": "0c721118-d87f-435d-a42c-1317555ae3d7",
+        "cclabel": "A",
+        "source": "node3",
+        "target": "node58"
+      },
+      {
+        "id": "cddd6483-115b-4d26-907b-ada64d5b54d8",
+        "cclabel": "A",
+        "source": "node76",
+        "target": "node54"
+      },
+      {
+        "id": "2314548e-3c87-4f3c-a235-3ccc333453ad",
+        "cclabel": "A",
+        "source": "node43",
+        "target": "node57"
+      },
+      {
+        "id": "2cb92546-0dda-414c-acd8-80a0c651cbc6",
+        "cclabel": "WRITE",
+        "source": "node16",
+        "target": "node54"
+      },
+      {
+        "id": "896233f2-1b4c-4ef7-a5d2-770f876da266",
+        "cclabel": "TAKE",
+        "source": "node35",
+        "target": "node67"
+      },
+      {
+        "id": "2896802d-d621-4af8-a3f9-91bbbf5cfdfc",
+        "cclabel": "A",
+        "source": "node18",
+        "target": "node57"
+      },
+      {
+        "id": "da62ece1-4af9-474c-8087-034f45ae5dd8",
+        "cclabel": "TAKE",
+        "source": "node72",
+        "target": "node51"
+      },
+      {
+        "id": "85e87c23-ff6e-491c-8636-17acf6dee863",
+        "cclabel": "WRITE",
+        "source": "node72",
+        "target": "node79"
+      },
+      {
+        "id": "e37f526e-f10e-40c2-a109-4b8d083af007",
+        "cclabel": "CREATE",
+        "source": "node51",
+        "target": "node58"
+      },
+      {
+        "id": "2bb7b7ca-a58d-407f-8217-ead8f52061a1",
+        "cclabel": "WRITE",
+        "source": "node53",
+        "target": "node69"
+      },
+      {
+        "id": "be477864-cdf9-4baa-ac8b-b05ee6a93715",
+        "cclabel": "CREATE",
+        "source": "node99",
+        "target": "node47"
+      },
+      {
+        "id": "418f298f-71be-448f-a4f0-eef812699a8d",
+        "cclabel": "WRITE",
+        "source": "node35",
+        "target": "node29"
+      },
+      {
+        "id": "bbf29a6f-3cba-4ebf-9a05-8a98f2a7a8fe",
+        "cclabel": "READ",
+        "source": "node25",
+        "target": "node77"
+      },
+      {
+        "id": "b4741df2-4fc8-41db-a0b8-f173f1fa0b73",
+        "cclabel": "TAKE",
+        "source": "node3",
+        "target": "node70"
+      },
+      {
+        "id": "591906d5-8c61-4728-a905-a3271aa047d4",
+        "cclabel": "A",
+        "source": "node55",
+        "target": "node76"
+      },
+      {
+        "id": "f302db1f-7341-41fe-bc57-d1f3cfb094c7",
+        "cclabel": "GRANT",
+        "source": "node99",
+        "target": "node97"
+      },
+      {
+        "id": "6efd0528-8083-42c6-8b8b-7a49c5f86bc4",
+        "cclabel": "GRANT",
+        "source": "node93",
+        "target": "node77"
+      },
+      {
+        "id": "db72b19b-5127-474b-83aa-abc42f9c5afe",
+        "cclabel": "A",
+        "source": "node56",
+        "target": "node19"
+      },
+      {
+        "id": "fdc0cb0a-8889-4c74-be97-7d5e7ef106ba",
+        "cclabel": "READ",
+        "source": "node56",
+        "target": "node37"
+      },
+      {
+        "id": "293fa10d-cb14-4873-963e-92cd12645821",
+        "cclabel": "GRANT",
+        "source": "node75",
+        "target": "node80"
+      },
+      {
+        "id": "8e6d1d73-1a94-4399-a6b9-4b1c4323d83a",
+        "cclabel": "CREATE",
+        "source": "node28",
+        "target": "node86"
+      },
+      {
+        "id": "21145bde-c28a-41e4-b39d-b77252662a94",
+        "cclabel": "TAKE",
+        "source": "node77",
+        "target": "node21"
+      },
+      {
+        "id": "257596b2-860c-4253-9926-831b147d63e3",
+        "cclabel": "CREATE",
+        "source": "node78",
+        "target": "node24"
+      },
+      {
+        "id": "7d1f5025-a11c-4d66-b02f-922ee5ec1e18",
+        "cclabel": "READ",
+        "source": "node81",
+        "target": "node24"
+      },
+      {
+        "id": "e41b121f-5ac7-4991-babd-d2b5aabd0401",
+        "cclabel": "WRITE",
+        "source": "node52",
+        "target": "node88"
+      },
+      {
+        "id": "a91de0bf-182c-48b1-8b5e-86839f656990",
+        "cclabel": "TAKE",
+        "source": "node1",
+        "target": "node34"
+      },
+      {
+        "id": "270e5863-8097-4499-8298-45b3f20dfb4b",
+        "cclabel": "TAKE",
+        "source": "node78",
+        "target": "node13"
+      },
+      {
+        "id": "ac94c7c8-ee4d-4763-bc97-c0d4ed985088",
+        "cclabel": "READ",
+        "source": "node65",
+        "target": "node34"
+      },
+      {
+        "id": "e1d53e83-ff8c-42f6-967d-db63fcda735d",
+        "cclabel": "TAKE",
+        "source": "node81",
+        "target": "node29"
+      },
+      {
+        "id": "a646dd1c-207e-4655-8333-1b8c04ba8f3e",
+        "cclabel": "GRANT",
+        "source": "node83",
+        "target": "node84"
+      },
+      {
+        "id": "5097e9a0-9f69-4879-bc23-977ecade0ea7",
+        "cclabel": "WRITE",
+        "source": "node3",
+        "target": "node55"
+      },
+      {
+        "id": "975b0069-45e2-4f1a-943e-fedaf8b6aa12",
+        "cclabel": "CREATE",
+        "source": "node19",
+        "target": "node83"
+      },
+      {
+        "id": "1152e0cf-929e-4d75-ad56-924e4cd76f1f",
+        "cclabel": "CREATE",
+        "source": "node24",
+        "target": "node36"
+      },
+      {
+        "id": "49527d42-365e-4485-b5b2-44a3f9afca9e",
+        "cclabel": "READ",
+        "source": "node25",
+        "target": "node91"
+      },
+      {
+        "id": "a8a98562-a92e-4be5-b144-34d00bbee1f1",
+        "cclabel": "GRANT",
+        "source": "node49",
+        "target": "node29"
+      },
+      {
+        "id": "30393013-b0c9-434a-a117-61daa9274947",
+        "cclabel": "TAKE",
+        "source": "node57",
+        "target": "node82"
+      },
+      {
+        "id": "741213be-ba06-472c-8db9-0a1dc3cc3c6e",
+        "cclabel": "WRITE",
+        "source": "node93",
+        "target": "node14"
+      },
+      {
+        "id": "482f5aed-1f4a-4bf7-898b-70e42d71cb2a",
+        "cclabel": "TAKE",
+        "source": "node99",
+        "target": "node95"
+      },
+      {
+        "id": "43333a28-3534-4eb7-880f-31618c4c97ef",
+        "cclabel": "A",
+        "source": "node8",
+        "target": "node89"
+      }
+    ]
+  }
+}
