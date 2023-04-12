@@ -1,10 +1,10 @@
 import json
 import logging as log
-import threading
-import networkx as nx
 import multiprocessing as mp
-from matplotlib import pyplot as plt
 from itertools import product
+
+import networkx as nx
+from matplotlib import pyplot as plt
 
 GRAPH = 'graph'
 NODES = 'nodes'
@@ -37,15 +37,14 @@ def read_graph(filename: str) -> tuple[nx.MultiDiGraph, dict[str, str], dict[str
     graph.add_nodes_from(id_attrs)
 
     id_attrs = ((edge[SOURCE], edge[TARGET], edge[ID], edge) for edge in edges)
-    edges_to_labels = {(edge[SOURCE], edge[TARGET])
-                        : edge[EDGE_TYPE] for edge in edges}
+    edges_to_labels = {(edge[SOURCE], edge[TARGET]): edge[EDGE_TYPE] for edge in edges}
     graph.add_edges_from(id_attrs)
 
     return graph, nodes_to_labels, edges_to_labels
 
 
 def print_graph(graph: nx.MultiDiGraph, filename: str, nodes_to_labels: dict[str, str], edges_to_labels: dict[tuple, str]):
-    f = plt.figure(figsize=(100,100))
+    f = plt.figure(figsize=(75, 75))
     f.tight_layout()
     plt.subplot(111)
     pos = nx.spring_layout(graph)
@@ -116,7 +115,7 @@ def get_edge_data(graph: nx.MultiDiGraph, u: str, v: str, key: str) -> dict[str,
             return None
 
 
-def is_island_bridge(
+def is_ib_subpath(
         graph: nx.MultiDiGraph, edge: dict[str, str], node: str,
         prev_edge: dict[str, str] | None, prev_node: str) -> bool:
 
@@ -167,38 +166,40 @@ def is_island_bridge(
     return False
 
 
-def is_island_bridge_path(args: tuple[nx.MultiDiGraph, nx.MultiGraph, tuple[str, str]]) -> bool:
+def has_island_bridge_paths(args: tuple[nx.MultiDiGraph, nx.MultiGraph, tuple[str, str]]) -> bool:
     graph, graph_view, xi_si = args
     xi, si = xi_si
-    log.info('[is_island_brifge_path: xi=%s, si=%s]', xi, si)
+    log.info('[is_island_bridge_path: xi=%s, si=%s]', xi, si)
 
-    def check_path(path):
+    def check_ib_path(path):
         prev_edge = None
         ok_path = True
         for prev_node, curr_node, edge_id in path:
             edge = get_edge_data(graph, prev_node, curr_node, edge_id)
-            ok = is_island_bridge(
+            ok = is_ib_subpath(
                 graph, edge, curr_node, prev_edge, prev_node)
-            log.debug('[is_island_brifge_path:xi=%s, si=%s] prev_node=%s, curr_node=%s, ok=%s',
+            log.debug('[is_island_bridge_path:xi=%s, si=%s] prev_node=%s, curr_node=%s, ok=%s',
                       xi, si, curr_node, prev_node, ok)
             if not ok:
                 ok_path = False
                 break
             prev_edge = edge
 
-        log.info('[is_island_brifge_path:xi=%s, si=%s] ok_path=%s',
+        log.info('[is_island_bridge_path:xi=%s, si=%s] ok_path=%s',
                  xi, si, ok_path)
         return ok_path
 
     paths = list(nx.all_simple_edge_paths(graph_view, xi, si))
-    log.info('[is_island_brifge_path:xi=%s, si=%s] paths=%s', xi, si, paths)
+    log.info('[is_island_bridge_path:xi=%s, si=%s] paths=%s', xi, si, paths)
     for path in paths:
-        if check_path(path):
+        if check_ib_path(path):
             return True
     return False
 
 
-def can_share(graph: nx.MultiDiGraph, a: str, x: str, y: str) -> bool:
+def can_share(graph: nx.MultiDiGraph, a: str, x: str, y: str) -> bool|None:
+    if x == y:
+        return None
 
     # condition 1
     x_y_edge = graph.get_edge_data(x, y)
@@ -232,7 +233,7 @@ def can_share(graph: nx.MultiDiGraph, a: str, x: str, y: str) -> bool:
     args = ((graph, undirected_graph_view, xi_si)
             for xi_si in product(xi_ids, si_ids))
     with mp.Pool() as pool:
-        for res in pool.imap_unordered(is_island_bridge_path, args):
+        for res in pool.imap_unordered(has_island_bridge_paths, args):
             if res:
                 return True
     return False
@@ -241,15 +242,15 @@ def can_share(graph: nx.MultiDiGraph, a: str, x: str, y: str) -> bool:
 if __name__ == '__main__':
     name = 'random_graph_30_75'
     g, nodes_to_labels, edges_to_labels = read_graph(f'./test/{name}.json')
-    
+
     # print_graph(g, f'./view/{name}_view', nodes_to_labels, edges_to_labels)
-    
+
     x = "node22"
     y = "node9"
     # print(nx.has_path(g.to_undirected(as_view=True), x, y))
-    print(len(list(nx.all_simple_edge_paths(g.to_undirected(as_view=True), x, y))))
-    
+    # print(len(list(nx.all_simple_edge_paths(g.to_undirected(as_view=True), x, y))))
+
     # print(can_share(graph=g, a='WRITE', x='node87', y='node15'))
-    
+
     # print(can_share(graph=g, a='READ', x='e6c588de-9f16-46a0-bd22-c96f76873911',
     #                 y='d9f8d86c-48a9-4ffc-a122-26da3f3452eb'))
