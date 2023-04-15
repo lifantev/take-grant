@@ -1,0 +1,183 @@
+{
+    "graph": {
+        "id": "condition_4_2",
+        "nodes": [
+            {
+                "label": "1",
+                "id": "1",
+                "active": "SUBJECT"
+            },
+            {
+                "label": "2",
+                "id": "2",
+                "active": "OBJECT"
+            },
+            {
+                "label": "3",
+                "id": "3",
+                "active": "SUBJECT"
+            },
+            {
+                "label": "4",
+                "id": "4",
+                "active": "SUBJECT"
+            },
+            {
+                "label": "5",
+                "id": "5",
+                "active": "SUBJECT"
+            },
+            {
+                "label": "6",
+                "id": "6",
+                "active": "SUBJECT"
+            },
+            {
+                "label": "7",
+                "id": "7",
+                "active": "SUBJECT"
+            },
+            {
+                "label": "8",
+                "id": "8",
+                "active": "SUBJECT"
+            },
+            {
+                "label": "9",
+                "id": "9",
+                "active": "SUBJECT"
+            },
+            {
+                "label": "10",
+                "id": "10",
+                "active": "SUBJECT"
+            },
+            {
+                "label": "11",
+                "id": "11",
+                "active": "SUBJECT"
+            },
+            {
+                "label": "12",
+                "id": "12",
+                "active": "SUBJECT"
+            },
+            {
+                "label": "13",
+                "id": "13",
+                "active": "OBJECT"
+            },
+            {
+                "label": "14",
+                "id": "14",
+                "active": "SUBJECT"
+            },
+            {
+                "label": "15",
+                "id": "15",
+                "active": "SUBJECT"
+            },
+            {
+                "label": "16",
+                "id": "16",
+                "active": "OBJECT"
+            },
+            {
+                "label": "17",
+                "id": "17",
+                "active": "OBJECT"
+            },
+            {
+                "label": "18",
+                "id": "18",
+                "active": "SUBJECT"
+            }
+        ],
+        "edges": [
+            {
+                "id": "21",
+                "cclabel": "TAKE",
+                "source": "2",
+                "target": "1"
+            },
+            {
+                "id": "32",
+                "cclabel": "TAKE",
+                "source": "3",
+                "target": "2"
+            },
+            {
+                "id": "34",
+                "cclabel": "GRANT",
+                "source": "3",
+                "target": "4"
+            },
+            {
+                "id": "56",
+                "cclabel": "GRANT",
+                "source": "5",
+                "target": "6"
+            },
+            {
+                "id": "67",
+                "cclabel": "TAKE",
+                "source": "6",
+                "target": "7"
+            },
+            {
+                "id": "98",
+                "cclabel": "TAKE",
+                "source": "9",
+                "target": "8"
+            },
+            {
+                "id": "109",
+                "cclabel": "GRANT",
+                "source": "10",
+                "target": "9"
+            },
+            {
+                "id": "1011",
+                "cclabel": "TAKE",
+                "source": "10",
+                "target": "11"
+            },
+            {
+                "id": "1312",
+                "cclabel": "TAKE",
+                "source": "13",
+                "target": "12"
+            },
+            {
+                "id": "1413",
+                "cclabel": "TAKE",
+                "source": "14",
+                "target": "13"
+            },
+            {
+                "id": "1415",
+                "cclabel": "TAKE",
+                "source": "14",
+                "target": "15"
+            },
+            {
+                "id": "1516",
+                "cclabel": "TAKE",
+                "source": "15",
+                "target": "16"
+            },
+            {
+                "id": "1716",
+                "cclabel": "GRANT",
+                "source": "17",
+                "target": "16"
+            },
+            {
+                "id": "1817",
+                "cclabel": "TAKE",
+                "source": "18",
+                "target": "17"
+            }
+        ]
+    }
+}

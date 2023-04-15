@@ -1,0 +1,470 @@
+{
+  "graph": {
+    "id": "condition_4_1",
+    "nodes": [
+      {
+        "label": "1",
+        "id": "1",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "2",
+        "id": "2",
+        "active": "OBJECT"
+      },
+      {
+        "label": "3",
+        "id": "3",
+        "active": "OBJECT"
+      },
+      {
+        "label": "4",
+        "id": "4",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "5",
+        "id": "5",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "6",
+        "id": "6",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "7",
+        "id": "7",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "8",
+        "id": "8",
+        "active": "OBJECT"
+      },
+      {
+        "label": "9",
+        "id": "9",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "10",
+        "id": "10",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "11",
+        "id": "11",
+        "active": "OBJECT"
+      },
+      {
+        "label": "12",
+        "id": "12",
+        "active": "OBJECT"
+      },
+      {
+        "label": "13",
+        "id": "13",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "14",
+        "id": "14",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "15",
+        "id": "15",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "16",
+        "id": "16",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "17",
+        "id": "17",
+        "active": "OBJECT"
+      },
+      {
+        "label": "18",
+        "id": "18",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "19",
+        "id": "19",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "20",
+        "id": "20",
+        "active": "OBJECT"
+      },
+      {
+        "label": "21",
+        "id": "21",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "22",
+        "id": "22",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "23",
+        "id": "23",
+        "active": "OBJECT"
+      },
+      {
+        "label": "24",
+        "id": "24",
+        "active": "OBJECT"
+      },
+      {
+        "label": "25",
+        "id": "25",
+        "active": "OBJECT"
+      },
+      {
+        "label": "26",
+        "id": "26",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "27",
+        "id": "27",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "28",
+        "id": "28",
+        "active": "OBJECT"
+      },
+      {
+        "label": "29",
+        "id": "29",
+        "active": "OBJECT"
+      },
+      {
+        "label": "30",
+        "id": "30",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "31",
+        "id": "31",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "32",
+        "id": "32",
+        "active": "OBJECT"
+      },
+      {
+        "label": "33",
+        "id": "33",
+        "active": "OBJECT"
+      },
+      {
+        "label": "34",
+        "id": "34",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "35",
+        "id": "35",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "36",
+        "id": "36",
+        "active": "OBJECT"
+      },
+      {
+        "label": "37",
+        "id": "37",
+        "active": "OBJECT"
+      },
+      {
+        "label": "38",
+        "id": "38",
+        "active": "OBJECT"
+      },
+      {
+        "label": "39",
+        "id": "39",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "40",
+        "id": "40",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "41",
+        "id": "41",
+        "active": "OBJECT"
+      },
+      {
+        "label": "42",
+        "id": "42",
+        "active": "OBJECT"
+      },
+      {
+        "label": "43",
+        "id": "43",
+        "active": "OBJECT"
+      },
+      {
+        "label": "44",
+        "id": "44",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "45",
+        "id": "45",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "46",
+        "id": "46",
+        "active": "OBJECT"
+      },
+      {
+        "label": "47",
+        "id": "47",
+        "active": "OBJECT"
+      },
+      {
+        "label": "48",
+        "id": "48",
+        "active": "OBJECT"
+      },
+      {
+        "label": "49",
+        "id": "49",
+        "active": "SUBJECT"
+      }
+    ],
+    "edges": [
+      {
+        "id": "21",
+        "cclabel": "TAKE",
+        "source": "2",
+        "target": "1"
+      },
+      {
+        "id": "32",
+        "cclabel": "TAKE",
+        "source": "3",
+        "target": "2"
+      },
+      {
+        "id": "43",
+        "cclabel": "TAKE",
+        "source": "4",
+        "target": "3"
+      },
+      {
+        "id": "65",
+        "cclabel": "TAKE",
+        "source": "6",
+        "target": "5"
+      },
+      {
+        "id": "78",
+        "cclabel": "TAKE",
+        "source": "7",
+        "target": "8"
+      },
+      {
+        "id": "89",
+        "cclabel": "TAKE",
+        "source": "8",
+        "target": "9"
+      },
+      {
+        "id": "1110",
+        "cclabel": "TAKE",
+        "source": "11",
+        "target": "10"
+      },
+      {
+        "id": "1211",
+        "cclabel": "GRANT",
+        "source": "12",
+        "target": "11"
+      },
+      {
+        "id": "1213",
+        "cclabel": "TAKE",
+        "source": "12",
+        "target": "13"
+      },
+      {
+        "id": "1514",
+        "cclabel": "GRANT",
+        "source": "15",
+        "target": "14"
+      },
+      {
+        "id": "1617",
+        "cclabel": "GRANT",
+        "source": "16",
+        "target": "17"
+      },
+      {
+        "id": "1718",
+        "cclabel": "TAKE",
+        "source": "17",
+        "target": "18"
+      },
+      {
+        "id": "2019",
+        "cclabel": "GRANT",
+        "source": "20",
+        "target": "19"
+      },
+      {
+        "id": "2120",
+        "cclabel": "TAKE",
+        "source": "21",
+        "target": "20"
+      },
+      {
+        "id": "2223",
+        "cclabel": "TAKE",
+        "source": "22",
+        "target": "23"
+      },
+      {
+        "id": "2324",
+        "cclabel": "TAKE",
+        "source": "23",
+        "target": "24"
+      },
+      {
+        "id": "2425",
+        "cclabel": "GRANT",
+        "source": "24",
+        "target": "25"
+      },
+      {
+        "id": "2625",
+        "cclabel": "TAKE",
+        "source": "26",
+        "target": "25"
+      },
+      {
+        "id": "2728",
+        "cclabel": "TAKE",
+        "source": "27",
+        "target": "28"
+      },
+      {
+        "id": "2829",
+        "cclabel": "GRANT",
+        "source": "28",
+        "target": "29"
+      },
+      {
+        "id": "2930",
+        "cclabel": "GRANT",
+        "source": "29",
+        "target": "30"
+      },
+      {
+        "id": "3132",
+        "cclabel": "TAKE",
+        "source": "31",
+        "target": "32"
+      },
+      {
+        "id": "3233",
+        "cclabel": "GRANT",
+        "source": "32",
+        "target": "33"
+      },
+      {
+        "id": "3334",
+        "cclabel": "TAKE",
+        "source": "33",
+        "target": "34"
+      },
+      {
+        "id": "3536",
+        "cclabel": "TAKE",
+        "source": "35",
+        "target": "36"
+      },
+      {
+        "id": "3637",
+        "cclabel": "GRANT",
+        "source": "36",
+        "target": "37"
+      },
+      {
+        "id": "3837",
+        "cclabel": "TAKE",
+        "source": "38",
+        "target": "37"
+      },
+      {
+        "id": "3938",
+        "cclabel": "TAKE",
+        "source": "39",
+        "target": "38"
+      },
+      {
+        "id": "4041",
+        "cclabel": "TAKE",
+        "source": "40",
+        "target": "41"
+      },
+      {
+        "id": "4241",
+        "cclabel": "GRANT",
+        "source": "42",
+        "target": "41"
+      },
+      {
+        "id": "4342",
+        "cclabel": "TAKE",
+        "source": "43",
+        "target": "42"
+      },
+      {
+        "id": "4443",
+        "cclabel": "TAKE",
+        "source": "44",
+        "target": "43"
+      },
+      {
+        "id": "4546",
+        "cclabel": "TAKE",
+        "source": "45",
+        "target": "46"
+      },
+      {
+        "id": "4746",
+        "cclabel": "GRANT",
+        "source": "47",
+        "target": "46"
+      },
+      {
+        "id": "4847",
+        "cclabel": "TAKE",
+        "source": "48",
+        "target": "47"
+      },
+      {
+        "id": "4849",
+        "cclabel": "TAKE",
+        "source": "48",
+        "target": "49"
+      }
+    ]
+  }
+}

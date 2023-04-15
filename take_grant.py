@@ -189,9 +189,9 @@ def has_island_bridge_paths(args: tuple[nx.MultiDiGraph, nx.MultiGraph, tuple[st
                  xi, si, ok_path)
         return ok_path
 
-    paths = list(nx.all_simple_edge_paths(graph_view, xi, si))
-    log.info('[is_island_bridge_path:xi=%s, si=%s] paths=%s', xi, si, paths)
+    paths = nx.all_simple_edge_paths(graph_view, xi, si)
     for path in paths:
+        log.info('[is_island_bridge_path:xi=%s, si=%s] path=%s', xi, si, path)
         if check_ib_path(path):
             return True
     return False

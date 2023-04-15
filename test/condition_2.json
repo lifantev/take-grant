@@ -1,0 +1,80 @@
+{
+  "graph": {
+    "id": "condition_2",
+    "nodes": [
+      {
+        "label": "1",
+        "id": "1",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "2",
+        "id": "2",
+        "active": "OBJECT"
+      },
+      {
+        "label": "3",
+        "id": "3",
+        "active": "OBJECT"
+      },
+      {
+        "label": "4",
+        "id": "4",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "5",
+        "id": "5",
+        "active": "SUBJECT"
+      },
+      {
+        "label": "6",
+        "id": "6",
+        "active": "OBJECT"
+      },
+      {
+        "label": "7",
+        "id": "7",
+        "active": "SUBJECT"
+      }
+    ],
+    "edges": [
+      {
+        "id": "12",
+        "cclabel": "A",
+        "source": "1",
+        "target": "2"
+      },
+      {
+        "id": "23",
+        "cclabel": "A",
+        "source": "2",
+        "target": "3"
+      },
+      {
+        "id": "42",
+        "cclabel": "B",
+        "source": "4",
+        "target": "2"
+      },
+      {
+        "id": "26",
+        "cclabel": "B",
+        "source": "2",
+        "target": "6"
+      },
+      {
+        "id": "56",
+        "cclabel": "A",
+        "source": "5",
+        "target": "6"
+      },
+      {
+        "id": "45",
+        "cclabel": "A",
+        "source": "4",
+        "target": "5"
+      }
+    ]
+  }
+}
