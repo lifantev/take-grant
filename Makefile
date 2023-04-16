@@ -1,2 +1,2 @@
-run:
-	python3 take_grant.py
+tests:
+	python3 -m unittest take_grant_test
