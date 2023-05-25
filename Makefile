@@ -1,2 +1,4 @@
 tests:
-	python3 -m unittest take_grant_test
+	python3 -m unittest can_share_test
+coverage:
+	coverage run -m unittest can_share_test

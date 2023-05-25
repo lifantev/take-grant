@@ -1,6 +1,6 @@
 import unittest
 from dataclasses import dataclass
-from take_grant import *
+from can_share import *
 
 test_cases = ['condition_1', 'condition_2', 'condition_3_1',
               'condition_3_2', 'condition_4_1', 'condition_4_2']
