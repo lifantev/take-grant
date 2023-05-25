@@ -6,7 +6,8 @@ from itertools import product
 from utils import *
 
 log.basicConfig(format='%(process)d-%(levelname)s-%(message)s',
-                level=log.DEBUG, filename='./log/take_grant.log', filemode='w')
+                level=log.INFO, filename='./log/take_grant.log', filemode='w')
+# log.disable()
 
 
 def dfs_for_spans(
@@ -122,33 +123,34 @@ def is_island_bridge_subpath(
     return False
 
 
+def is_island_bridge_path(graph: nx.MultiDiGraph, path: tuple[str, str, any], xi: str, si: str) -> bool:
+    prev_edge = None
+    ok_path = True
+    for prev_node, curr_node, edge_id in path:
+        edge = get_edge_data(graph, prev_node, curr_node, edge_id)
+        ok = is_island_bridge_subpath(
+            graph, edge, curr_node, prev_edge, prev_node)
+        log.debug('[is_island_bridge_path:xi=%s, si=%s] prev_node=%s, curr_node=%s, ok=%s',
+                  xi, si, prev_node, curr_node, ok)
+        if not ok:
+            ok_path = False
+            break
+        prev_edge = edge
+
+    log.debug('[is_island_bridge_path:xi=%s, si=%s] ok_path=%s',
+              xi, si, ok_path)
+    return ok_path
+
+
 def island_bridge_paths_exist(args: tuple[nx.MultiDiGraph, nx.MultiGraph, tuple[str, str]]) -> bool:
     graph, graph_view, xi_si = args
     xi, si = xi_si
     log.info('[is_island_bridge_path: xi=%s, si=%s]', xi, si)
 
-    def is_island_bridge_path(path: tuple[str, str, any]) -> bool:
-        prev_edge = None
-        ok_path = True
-        for prev_node, curr_node, edge_id in path:
-            edge = get_edge_data(graph, prev_node, curr_node, edge_id)
-            ok = is_island_bridge_subpath(
-                graph, edge, curr_node, prev_edge, prev_node)
-            log.debug('[is_island_bridge_path:xi=%s, si=%s] prev_node=%s, curr_node=%s, ok=%s',
-                      xi, si, prev_node, curr_node, ok)
-            if not ok:
-                ok_path = False
-                break
-            prev_edge = edge
-
-        log.info('[is_island_bridge_path:xi=%s, si=%s] ok_path=%s',
-                 xi, si, ok_path)
-        return ok_path
-
-    paths = nx.all_simple_edge_paths(graph_view, xi, si)
+    paths = all_edge_paths(graph, graph_view, xi, si)
     for path in paths:
         log.info('[is_island_bridge_path:xi=%s, si=%s] path=%s', xi, si, path)
-        if is_island_bridge_path(path):
+        if is_island_bridge_path(graph, path, xi, si):
             return True
     return False
 
@@ -166,6 +168,63 @@ def s_y_a_nodes(graph: nx.MultiDiGraph, a: str, y: str) -> set[str]:
         if d[EDGE_TYPE] == a:
             s_ids.add(src)
     return s_ids
+
+
+def all_edge_paths(graph: nx.MultiDiGraph, graph_view: nx.MultiGraph, src: str, trgt: str, cutoff=None):
+    if src not in graph:
+        raise nx.NodeNotFound("source node %s not in graph" % src)
+    if trgt not in graph:
+        raise nx.NodeNotFound("target node %s not in graph" % trgt)
+    if src == trgt:
+        return []
+    if cutoff is None:
+        cutoff = len(graph) - 1
+    if cutoff < 1:
+        return []
+
+    for path in dfs_paths_with_pruning(graph, graph_view, src, trgt, cutoff):
+        yield path
+
+
+def dfs_paths_with_pruning(graph: nx.MultiDiGraph, graph_view: nx.MultiGraph, src: str, trgt: str, cutoff: int | None):
+    if not cutoff or cutoff < 1:
+        return []
+    visited = []
+    edges = graph_view.edges(src, keys=True)
+    stack = [(iter(edges), len(edges))]
+    path = []
+
+    while stack:
+        children = stack[-1]
+        child = next(children[0], None)
+        if child is None:
+            if stack:
+                stack.pop()
+            for _ in range(children[1]):
+                if visited:
+                    visited.pop()
+            if path:
+                path.pop()
+        elif len(path) < cutoff:
+            if child[1] == trgt and is_island_bridge_path(graph, path + [child], src, trgt):
+                yield path + [child]
+            elif child[2] not in visited:
+                if is_island_bridge_path(graph, path + [child], src, trgt):
+                    edges = graph_view.edges(child[1], keys=True)
+                    stack.append((iter(edges), len(edges)))
+                    path.append(child)
+            visited.append(child[2])
+        else:
+            for u, v, k in [child] + list(children[0]):
+                if v == trgt and is_island_bridge_path(graph, path + [(u, v, k)], src, trgt):
+                    yield path + [(u, v, k)]
+            if stack:
+                stack.pop()
+            for _ in range(children[1]):
+                if visited:
+                    visited.pop()
+            if path:
+                path.pop()
 
 
 def can_share(graph: nx.MultiDiGraph, a: str, x: str, y: str) -> bool | None:
@@ -204,3 +263,12 @@ def can_share(graph: nx.MultiDiGraph, a: str, x: str, y: str) -> bool | None:
             if res:
                 return True
     return False
+
+
+# g = read_graph('./test/random_graph_30_75.json')[0]
+# x = 'node22'
+# y = 'node9'
+# print(can_share(g, 'A', x, y))
+
+# g = read_graph('./test/random_graph_100_200.json')[0]
+# print(can_share(graph=g, a='WRITE', x='node87', y='node15'))
