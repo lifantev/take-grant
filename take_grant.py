@@ -56,7 +56,7 @@ def terminally_spans(graph: nx.MultiDiGraph, s_ids: set[str]) -> set[str]:
             if d[EDGE_TYPE] == TAKE:
                 to_visit.append((src, s))
 
-    # t->* paths from subjects to closest take nodes for s
+    # t->* paths from subjects to s nodes
     visited = set()
     dfs_for_spans(graph, si_ids, visited, to_visit)
     return si_ids
@@ -147,7 +147,7 @@ def island_bridge_paths_exist(args: tuple[nx.MultiDiGraph, nx.MultiGraph, tuple[
     xi, si = xi_si
     log.info('[is_island_bridge_path: xi=%s, si=%s]', xi, si)
 
-    paths = all_edge_paths(graph, graph_view, xi, si)
+    paths = island_bridge_paths_search(graph, graph_view, xi, si)
     for path in paths:
         log.info('[is_island_bridge_path:xi=%s, si=%s] path=%s', xi, si, path)
         if is_island_bridge_path(graph, path, xi, si):
@@ -170,7 +170,7 @@ def s_y_a_nodes(graph: nx.MultiDiGraph, a: str, y: str) -> set[str]:
     return s_ids
 
 
-def all_edge_paths(graph: nx.MultiDiGraph, graph_view: nx.MultiGraph, src: str, trgt: str, cutoff=None):
+def island_bridge_paths_search(graph: nx.MultiDiGraph, graph_view: nx.MultiGraph, src: str, trgt: str, cutoff=None):
     if src not in graph:
         raise nx.NodeNotFound("source node %s not in graph" % src)
     if trgt not in graph:
@@ -182,11 +182,11 @@ def all_edge_paths(graph: nx.MultiDiGraph, graph_view: nx.MultiGraph, src: str, 
     if cutoff < 1:
         return []
 
-    for path in dfs_paths_with_pruning(graph, graph_view, src, trgt, cutoff):
+    for path in dfs_for_paths_with_pruning(graph, graph_view, src, trgt, cutoff):
         yield path
 
 
-def dfs_paths_with_pruning(graph: nx.MultiDiGraph, graph_view: nx.MultiGraph, src: str, trgt: str, cutoff: int | None):
+def dfs_for_paths_with_pruning(graph: nx.MultiDiGraph, graph_view: nx.MultiGraph, src: str, trgt: str, cutoff: int | None):
     if not cutoff or cutoff < 1:
         return []
     visited = []
@@ -231,26 +231,26 @@ def can_share(graph: nx.MultiDiGraph, a: str, x: str, y: str) -> bool | None:
     if x == y:
         return None
 
-    # condition 1
+    # condition 0
     if x_y_a_edge_exist(graph, a, x, y):
-        log.info('[can_share:condition #1] true')
+        log.info('[can_share:condition #0] true')
         return True
 
-    # condition 2
+    # condition 1
     s_ids = s_y_a_nodes(graph, a, y)
-    log.info('[can_share:condition #2] s_ids=%s', s_ids)
+    log.info('[can_share:condition #1] s_ids=%s', s_ids)
     if not s_ids:
         return False
 
-    # condition 3.1
+    # condition 2
     xi_ids = initially_spans(graph, x)
-    log.info('[can_share:condition #3.1] xi_ids=%s', xi_ids)
+    log.info('[can_share:condition #2] xi_ids=%s', xi_ids)
     if not xi_ids:
         return False
 
-    # condition 3.2
+    # condition 3
     si_ids = terminally_spans(graph, s_ids)
-    log.info('[can_share:condition #3.2] si_ids=%s', si_ids)
+    log.info('[can_share:condition #3] si_ids=%s', si_ids)
     if not si_ids:
         return False
 
