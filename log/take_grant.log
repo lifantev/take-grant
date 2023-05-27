@@ -1,4 +1,0 @@
-83172-INFO-[can_share:condition #2] s_ids={'node43'}
-83172-INFO-[can_share:condition #3.1] xi_ids={'node27'}
-83172-INFO-[can_share:condition #3.2] si_ids={'node43'}
-83188-INFO-[is_island_bridge_path: xi=node27, si=node43]

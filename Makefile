@@ -3,3 +3,4 @@ tests:
 coverage:
 	coverage run -m unittest can_share_test
 	coverage html
+	xdg-open ./htmlcov/index.html
