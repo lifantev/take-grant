@@ -76,24 +76,20 @@ def is_island_bridge_subpath(
         graph: nx.MultiDiGraph, edge: dict[str, str], node: str,
         prev_edge: dict[str, str] | None, prev_node: str) -> bool:
 
-    if edge is not None:
-        _, e_tgt, e_data = edge[SOURCE], edge[TARGET], edge
-    else:
+    if edge is None:
         return False
-
-    if prev_edge is not None:
-        pe_src, pe_tgt, pe_data = prev_edge[SOURCE], prev_edge[TARGET], prev_edge
+    _, e_tgt, e_data = edge[SOURCE], edge[TARGET], edge
 
     # only tg-paths allowed
     if e_data.get(EDGE_TYPE) not in TG_PATH_TYPES:
         return False
 
-    # start of the tg-path
     if prev_edge is None:
-        if graph.nodes[prev_node][NODE_TYPE] == SUBJECT:
-            return True
-        return False
-    elif pe_data.get(EDGE_TYPE) not in TG_PATH_TYPES:
+        return True
+    pe_src, pe_tgt, pe_data = prev_edge[SOURCE], prev_edge[TARGET], prev_edge
+    
+    # only tg-paths allowed
+    if pe_data.get(EDGE_TYPE) not in TG_PATH_TYPES:
         return False
 
     # island
@@ -123,9 +119,14 @@ def is_island_bridge_subpath(
     return False
 
 
-def is_island_bridge_path(graph: nx.MultiDiGraph, path: tuple[str, str, any], xi: str, si: str) -> bool:
-    prev_edge = None
+def is_island_bridge_path(graph: nx.MultiDiGraph, path: tuple[str, str, any], xi: str, si: str, strict: bool = True) -> bool:
+    if strict:
+        src, trgt = path[0], path[-1]
+        if graph.nodes[src[0]][NODE_TYPE] != SUBJECT or graph.nodes[trgt[1]][NODE_TYPE] != SUBJECT:
+            return False
+
     ok_path = True
+    prev_edge = None
     for prev_node, curr_node, edge_id in path:
         edge = get_edge_data(graph, prev_node, curr_node, edge_id)
         ok = is_island_bridge_subpath(
@@ -209,7 +210,7 @@ def dfs_for_paths_with_pruning(graph: nx.MultiDiGraph, graph_view: nx.MultiGraph
             if child[1] == trgt and is_island_bridge_path(graph, path + [child], src, trgt):
                 yield path + [child]
             elif child[2] not in visited:
-                if is_island_bridge_path(graph, path + [child], src, trgt):
+                if is_island_bridge_path(graph, path[-3:] + [child], src, trgt, strict=False):
                     edges = graph_view.edges(child[1], keys=True)
                     stack.append((iter(edges), len(edges)))
                     path.append(child)
