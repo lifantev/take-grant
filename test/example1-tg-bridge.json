@@ -1,0 +1,143 @@
+{
+    "graph": {
+        "label": "example1-tg-bridge",
+        "comment": "",
+        "status": null,
+        "atrib": null,
+        "tstamp": "1634224577376",
+        "id": "6164585c30c49e0001627ba9",
+        "uid": "5dd68c9ea20e31b7faf5dc2d",
+        "nodes": [
+            {
+                "label": "s1",
+                "comment": "",
+                "status": null,
+                "atrib": null,
+                "tstamp": null,
+                "id": "5ddcccfd-ece6-4d32-85d1-3c86dbf69808",
+                "active": "SUBJECT",
+                "zone": null,
+                "level": null
+            },
+            {
+                "label": "s",
+                "comment": "",
+                "status": null,
+                "atrib": null,
+                "tstamp": null,
+                "id": "72f23ec6-4ce3-4bd6-89f5-41f54be2cbb2",
+                "active": "SUBJECT",
+                "zone": null,
+                "level": null
+            },
+            {
+                "label": "q",
+                "comment": "",
+                "status": null,
+                "atrib": null,
+                "tstamp": null,
+                "id": "cffe89b6-6399-470e-b8d8-87bc32628cc3",
+                "active": "OBJECT",
+                "zone": null,
+                "level": null
+            },
+            {
+                "label": "o1",
+                "comment": "",
+                "status": null,
+                "atrib": null,
+                "tstamp": null,
+                "id": "abacac1e-5950-4ae4-9854-49f1203690e3",
+                "active": "OBJECT",
+                "zone": null,
+                "level": null
+            }
+        ],
+        "edges": [
+            {
+                "label": null,
+                "comment": null,
+                "status": null,
+                "atrib": null,
+                "tstamp": null,
+                "id": "5dbece5d-837c-48b5-a074-263520bd3efa",
+                "cclabel": "TAKE",
+                "weight": 1,
+                "source": "5ddcccfd-ece6-4d32-85d1-3c86dbf69808",
+                "target": "72f23ec6-4ce3-4bd6-89f5-41f54be2cbb2"
+            },
+            {
+                "label": null,
+                "comment": null,
+                "status": null,
+                "atrib": null,
+                "tstamp": null,
+                "id": "1dd121f6-e251-4051-be32-479160e57a2c",
+                "cclabel": "TAKE",
+                "weight": 1,
+                "source": "72f23ec6-4ce3-4bd6-89f5-41f54be2cbb2",
+                "target": "abacac1e-5950-4ae4-9854-49f1203690e3"
+            },
+            {
+                "label": null,
+                "comment": null,
+                "status": null,
+                "atrib": null,
+                "tstamp": null,
+                "id": "08664b7c-3475-460e-846f-c2b87762074b",
+                "cclabel": "GRANT",
+                "weight": 1,
+                "source": "72f23ec6-4ce3-4bd6-89f5-41f54be2cbb2",
+                "target": "abacac1e-5950-4ae4-9854-49f1203690e3"
+            },
+            {
+                "label": null,
+                "comment": null,
+                "status": null,
+                "atrib": null,
+                "tstamp": null,
+                "id": "14036599-895e-476d-8adf-7a70fadeac16",
+                "cclabel": "READ",
+                "weight": 1,
+                "source": "72f23ec6-4ce3-4bd6-89f5-41f54be2cbb2",
+                "target": "cffe89b6-6399-470e-b8d8-87bc32628cc3"
+            }
+        ]
+    },
+    "gva": {
+        "label": null,
+        "comment": null,
+        "status": null,
+        "atrib": null,
+        "tstamp": null,
+        "id": "6164589830c49e0001627baa",
+        "uid": "5dd68c9ea20e31b7faf5dc2d",
+        "gid": "6164585c30c49e0001627ba9",
+        "zoom": 1.7833448982604214,
+        "pan": null,
+        "positions": {
+            "5ddcccfd-ece6-4d32-85d1-3c86dbf69808": {
+                "x": 260,
+                "y": 309.4375
+            },
+            "cffe89b6-6399-470e-b8d8-87bc32628cc3": {
+                "x": 659,
+                "y": 311.4375
+            },
+            "abacac1e-5950-4ae4-9854-49f1203690e3": {
+                "x": 461,
+                "y": 166.4375
+            },
+            "72f23ec6-4ce3-4bd6-89f5-41f54be2cbb2": {
+                "x": 458,
+                "y": 307.4375
+            }
+        },
+        "nodeTypes": {
+            "5ddcccfd-ece6-4d32-85d1-3c86dbf69808": "subject",
+            "cffe89b6-6399-470e-b8d8-87bc32628cc3": "object",
+            "abacac1e-5950-4ae4-9854-49f1203690e3": "object",
+            "72f23ec6-4ce3-4bd6-89f5-41f54be2cbb2": "subject"
+        }
+    }
+}

@@ -2,8 +2,8 @@ import unittest
 from dataclasses import dataclass
 from can_share import *
 
-test_cases = ['condition_1', 'condition_2', 'condition_3_1',
-              'condition_3_2', 'condition_4_1', 'condition_4_2']
+test_cases = ['condition_1', 'condition_2', 'condition_3_1', 'condition_3_2', 'condition_4_1', 'condition_4_2',
+              'example1-tg-bridge', 'example2-big-fig', 'example3-complex-graph']
 
 test_graphs = dict[str, nx.MultiDiGraph]()
 
@@ -196,6 +196,37 @@ class TestCondition4_2(unittest.TestCase):
 
         for case in testcases:
             actual = island_bridge_paths_exist((graph, graph_view, case.xi_si))
+            self.assertEqual(
+                case.expected,
+                actual,
+                "failed test {} expected {}, actual {}".format(
+                    case, case.expected, actual
+                ),
+            )
+
+
+class TestArticlesExamples(unittest.TestCase):
+    def test_examples(self):
+        @dataclass
+        class TestCase:
+            graph_name: str
+            a: str
+            x: str
+            y: str
+            expected: bool
+
+        testcases = [
+            TestCase(graph_name='example1-tg-bridge', a='READ', x='5ddcccfd-ece6-4d32-85d1-3c86dbf69808',
+                     y='cffe89b6-6399-470e-b8d8-87bc32628cc3', expected=True),
+            TestCase(graph_name='example2-big-fig', a='READ', x='275ba42d-f079-4550-8de3-00b8fb5f2055',
+                     y='4ffe40e8-6bc1-4ddf-89d1-8682dcdd2372', expected=True),
+            TestCase(graph_name='example3-complex-graph',
+                     a='A', x='1', y='8', expected=True),
+        ]
+
+        for case in testcases:
+            graph = test_graphs[case.graph_name]
+            actual = can_share(graph, case.a, case.x, case.y)
             self.assertEqual(
                 case.expected,
                 actual,

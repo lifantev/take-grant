@@ -1,0 +1,271 @@
+{
+    "graph": {
+        "label": "example2-big-fig",
+        "comment": "",
+        "status": null,
+        "atrib": null,
+        "tstamp": "1633967535140",
+        "id": "61645cdb30c49e0001627bab",
+        "uid": "5dd68c9ea20e31b7faf5dc2d",
+        "nodes": [
+            {
+                "label": "p",
+                "comment": "",
+                "status": null,
+                "atrib": null,
+                "tstamp": null,
+                "id": "275ba42d-f079-4550-8de3-00b8fb5f2055",
+                "active": "SUBJECT",
+                "zone": null,
+                "level": null
+            },
+            {
+                "label": "u",
+                "comment": "",
+                "status": null,
+                "atrib": null,
+                "tstamp": null,
+                "id": "e710d694-89ae-48da-bfb9-fd0924206823",
+                "active": "SUBJECT",
+                "zone": null,
+                "level": null
+            },
+            {
+                "label": "v",
+                "comment": "",
+                "status": null,
+                "atrib": null,
+                "tstamp": null,
+                "id": "5e1b9543-8214-446b-b531-921986a8b365",
+                "active": "OBJECT",
+                "zone": null,
+                "level": null
+            },
+            {
+                "label": "w",
+                "comment": "",
+                "status": null,
+                "atrib": null,
+                "tstamp": null,
+                "id": "3c11ef3b-f5dd-41bb-9f3a-a5e41f168ba7",
+                "active": "SUBJECT",
+                "zone": null,
+                "level": null
+            },
+            {
+                "label": "x",
+                "comment": "",
+                "status": null,
+                "atrib": null,
+                "tstamp": null,
+                "id": "144b0c57-ba2d-4f93-86da-d7de1e409733",
+                "active": "OBJECT",
+                "zone": null,
+                "level": null
+            },
+            {
+                "label": "y",
+                "comment": "",
+                "status": null,
+                "atrib": null,
+                "tstamp": null,
+                "id": "02c95ab1-bb10-4c75-bfe5-8da53294193c",
+                "active": "SUBJECT",
+                "zone": null,
+                "level": null
+            },
+            {
+                "label": "s'",
+                "comment": "",
+                "status": null,
+                "atrib": null,
+                "tstamp": null,
+                "id": "1ca95894-4bf9-4045-b5d9-275cbf9b75b2",
+                "active": "SUBJECT",
+                "zone": null,
+                "level": null
+            },
+            {
+                "label": "s",
+                "comment": "",
+                "status": null,
+                "atrib": null,
+                "tstamp": null,
+                "id": "10ac13e7-5fed-461f-962a-54ac04c90e85",
+                "active": "OBJECT",
+                "zone": null,
+                "level": null
+            },
+            {
+                "label": "q",
+                "comment": "",
+                "status": null,
+                "atrib": null,
+                "tstamp": null,
+                "id": "4ffe40e8-6bc1-4ddf-89d1-8682dcdd2372",
+                "active": "OBJECT",
+                "zone": null,
+                "level": null
+            }
+        ],
+        "edges": [
+            {
+                "label": null,
+                "comment": null,
+                "status": null,
+                "atrib": null,
+                "tstamp": null,
+                "id": "73dde185-480a-43b7-8228-cb3ea83123bb",
+                "cclabel": "GRANT",
+                "weight": 1,
+                "source": "275ba42d-f079-4550-8de3-00b8fb5f2055",
+                "target": "e710d694-89ae-48da-bfb9-fd0924206823"
+            },
+            {
+                "label": null,
+                "comment": null,
+                "status": null,
+                "atrib": null,
+                "tstamp": null,
+                "id": "567d5b5d-c995-4376-82ba-3bd474bf2813",
+                "cclabel": "GRANT",
+                "weight": 1,
+                "source": "5e1b9543-8214-446b-b531-921986a8b365",
+                "target": "3c11ef3b-f5dd-41bb-9f3a-a5e41f168ba7"
+            },
+            {
+                "label": null,
+                "comment": null,
+                "status": null,
+                "atrib": null,
+                "tstamp": null,
+                "id": "909cfcf7-a97f-4e71-8359-d8573d3402aa",
+                "cclabel": "GRANT",
+                "weight": 1,
+                "source": "144b0c57-ba2d-4f93-86da-d7de1e409733",
+                "target": "3c11ef3b-f5dd-41bb-9f3a-a5e41f168ba7"
+            },
+            {
+                "label": null,
+                "comment": null,
+                "status": null,
+                "atrib": null,
+                "tstamp": null,
+                "id": "3f64add7-568e-40e5-8c81-577d2b07d807",
+                "cclabel": "GRANT",
+                "weight": 1,
+                "source": "1ca95894-4bf9-4045-b5d9-275cbf9b75b2",
+                "target": "02c95ab1-bb10-4c75-bfe5-8da53294193c"
+            },
+            {
+                "label": null,
+                "comment": null,
+                "status": null,
+                "atrib": null,
+                "tstamp": null,
+                "id": "e70d0112-126e-4311-beb9-f4cb89b263f7",
+                "cclabel": "TAKE",
+                "weight": 1,
+                "source": "e710d694-89ae-48da-bfb9-fd0924206823",
+                "target": "5e1b9543-8214-446b-b531-921986a8b365"
+            },
+            {
+                "label": null,
+                "comment": null,
+                "status": null,
+                "atrib": null,
+                "tstamp": null,
+                "id": "275cea6f-218c-4913-b646-2f7f8caf69e2",
+                "cclabel": "TAKE",
+                "weight": 1,
+                "source": "02c95ab1-bb10-4c75-bfe5-8da53294193c",
+                "target": "144b0c57-ba2d-4f93-86da-d7de1e409733"
+            },
+            {
+                "label": null,
+                "comment": null,
+                "status": null,
+                "atrib": null,
+                "tstamp": null,
+                "id": "2caf3b71-7ead-487c-8643-5afe7ef1e2b8",
+                "cclabel": "TAKE",
+                "weight": 1,
+                "source": "1ca95894-4bf9-4045-b5d9-275cbf9b75b2",
+                "target": "10ac13e7-5fed-461f-962a-54ac04c90e85"
+            },
+            {
+                "label": null,
+                "comment": null,
+                "status": null,
+                "atrib": null,
+                "tstamp": null,
+                "id": "b9d1642a-0c19-4251-b4d3-20ac97ada46a",
+                "cclabel": "READ",
+                "weight": 1,
+                "source": "10ac13e7-5fed-461f-962a-54ac04c90e85",
+                "target": "4ffe40e8-6bc1-4ddf-89d1-8682dcdd2372"
+            }
+        ]
+    },
+    "gva": {
+        "label": null,
+        "comment": null,
+        "status": null,
+        "atrib": null,
+        "tstamp": null,
+        "id": "61645d3230c49e0001627bac",
+        "uid": "5dd68c9ea20e31b7faf5dc2d",
+        "gid": "61645cdb30c49e0001627bab",
+        "zoom": 0.8009047909917617,
+        "pan": null,
+        "positions": {
+            "275ba42d-f079-4550-8de3-00b8fb5f2055": {
+                "x": 228,
+                "y": 210.4375
+            },
+            "1ca95894-4bf9-4045-b5d9-275cbf9b75b2": {
+                "x": 788,
+                "y": 194.4375
+            },
+            "3c11ef3b-f5dd-41bb-9f3a-a5e41f168ba7": {
+                "x": 530,
+                "y": 344.4375
+            },
+            "10ac13e7-5fed-461f-962a-54ac04c90e85": {
+                "x": 903,
+                "y": 186.4375
+            },
+            "02c95ab1-bb10-4c75-bfe5-8da53294193c": {
+                "x": 794,
+                "y": 346.4375
+            },
+            "e710d694-89ae-48da-bfb9-fd0924206823": {
+                "x": 223,
+                "y": 341.4375
+            },
+            "5e1b9543-8214-446b-b531-921986a8b365": {
+                "x": 395,
+                "y": 341.4375
+            },
+            "4ffe40e8-6bc1-4ddf-89d1-8682dcdd2372": {
+                "x": 1004,
+                "y": 188.4375
+            },
+            "144b0c57-ba2d-4f93-86da-d7de1e409733": {
+                "x": 661,
+                "y": 344.4375
+            }
+        },
+        "nodeTypes": {
+            "275ba42d-f079-4550-8de3-00b8fb5f2055": "subject",
+            "1ca95894-4bf9-4045-b5d9-275cbf9b75b2": "subject",
+            "3c11ef3b-f5dd-41bb-9f3a-a5e41f168ba7": "subject",
+            "10ac13e7-5fed-461f-962a-54ac04c90e85": "object",
+            "02c95ab1-bb10-4c75-bfe5-8da53294193c": "subject",
+            "e710d694-89ae-48da-bfb9-fd0924206823": "subject",
+            "5e1b9543-8214-446b-b531-921986a8b365": "object",
+            "4ffe40e8-6bc1-4ddf-89d1-8682dcdd2372": "object",
+            "144b0c57-ba2d-4f93-86da-d7de1e409733": "object"
+        }
+    }
+}
