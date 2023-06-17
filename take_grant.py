@@ -87,7 +87,7 @@ def is_island_bridge_subpath(
     if prev_edge is None:
         return True
     pe_src, pe_tgt, pe_data = prev_edge[SOURCE], prev_edge[TARGET], prev_edge
-    
+
     # only tg-paths allowed
     if pe_data.get(EDGE_TYPE) not in TG_PATH_TYPES:
         return False
@@ -171,25 +171,19 @@ def s_y_a_nodes(graph: nx.MultiDiGraph, a: str, y: str) -> set[str]:
     return s_ids
 
 
-def island_bridge_paths_search(graph: nx.MultiDiGraph, graph_view: nx.MultiGraph, src: str, trgt: str, cutoff=None):
+def island_bridge_paths_search(graph: nx.MultiDiGraph, graph_view: nx.MultiGraph, src: str, trgt: str):
     if src not in graph:
         raise nx.NodeNotFound("source node %s not in graph" % src)
     if trgt not in graph:
         raise nx.NodeNotFound("target node %s not in graph" % trgt)
     if src == trgt:
         return []
-    if cutoff is None:
-        cutoff = len(graph) - 1
-    if cutoff < 1:
-        return []
 
-    for path in dfs_for_paths_with_pruning(graph, graph_view, src, trgt, cutoff):
+    for path in dfs_for_paths_with_pruning(graph, graph_view, src, trgt):
         yield path
 
 
-def dfs_for_paths_with_pruning(graph: nx.MultiDiGraph, graph_view: nx.MultiGraph, src: str, trgt: str, cutoff: int | None):
-    if not cutoff or cutoff < 1:
-        return []
+def dfs_for_paths_with_pruning(graph: nx.MultiDiGraph, graph_view: nx.MultiGraph, src: str, trgt: str):
     visited = []
     edges = graph_view.edges(src, keys=True)
     stack = [(iter(edges), len(edges))]
@@ -206,7 +200,7 @@ def dfs_for_paths_with_pruning(graph: nx.MultiDiGraph, graph_view: nx.MultiGraph
                     visited.pop()
             if path:
                 path.pop()
-        elif len(path) < cutoff:
+        else:
             if child[1] == trgt and is_island_bridge_path(graph, path + [child], src, trgt):
                 yield path + [child]
             elif child[2] not in visited:
@@ -215,17 +209,6 @@ def dfs_for_paths_with_pruning(graph: nx.MultiDiGraph, graph_view: nx.MultiGraph
                     stack.append((iter(edges), len(edges)))
                     path.append(child)
             visited.append(child[2])
-        else:
-            for u, v, k in [child] + list(children[0]):
-                if v == trgt and is_island_bridge_path(graph, path + [(u, v, k)], src, trgt):
-                    yield path + [(u, v, k)]
-            if stack:
-                stack.pop()
-            for _ in range(children[1]):
-                if visited:
-                    visited.pop()
-            if path:
-                path.pop()
 
 
 def can_share(graph: nx.MultiDiGraph, a: str, x: str, y: str) -> bool | None:
