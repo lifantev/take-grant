@@ -1,6 +1,6 @@
 # take-grant::can-share
 
-Implementation of an algorithm for 𝑐𝑎𝑛_𝑠ℎ𝑎𝑟𝑒 verification predicate in Take-Grant protection model.<br>
+Efficient implementation of algorithm for 𝑐𝑎𝑛_𝑠ℎ𝑎𝑟𝑒 verification predicate in Take-Grant protection model.<br>
 Written in Python with help of NetworkX lib.<br>
 Linear computation complexity based on the L. Snyder algorithm, parallelism, tests, benchmarks.
 
